@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蓝色青春纪念册 - 梦幻闪回</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c2461, #1e3799, #2c3eaa, #4a69bd);
+            background-size: 400% 400%;
+            height: 100vh;
+            overflow: hidden;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            perspective: 1000px;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+            z-index: 10;
+        }
+        
+        .message {
+            background: rgba(0, 0, 30, 0.85);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(100, 200, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
+                        0 0 30px rgba(70, 130, 255, 0.7);
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+        
+        /* 新增背景装饰元素 */
+        .message::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #4fc3f7 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(20px);
+            animation: pulse 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.6; }
+            100% { transform: scale(1.2); opacity: 0.9; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateX(5deg) scale(1); }
+            50% { transform: translateY(-20px) rotateX(-5deg) scale(1.02); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        h1 {
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px #4fc3f7, 0 0 25px #4fc3f7, 0 0 40px #4fc3f7;
+            letter-spacing: 3px;
+            animation: textGlow 2s ease-in-out infinite alternate;
+            background: linear-gradient(to right, #e0f7fa, #b3e5fc, #81d4fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            position: relative;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #4fc3f7, transparent);
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+        
+        @keyframes textGlow {
+            from { text-shadow: 0 0 15px #4fc3f7, 0 0 25px #4fc3f7; }
+            to { text-shadow: 0 0 25px #4fc3f7, 0 0 40px #4fc3f7, 0 0 60px #29b6f6; }
+        }
+        
+        p {
+            font-size: 2rem;
+            margin: 25px 0;
+            line-height: 1.6;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            font-weight: 300;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #0288d1, #4fc3f7);
+            border: none;
+            padding: 20px 60px;
+            font-size: 2rem;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(2, 136, 209, 0.5),
+                        0 0 20px rgba(79, 195, 247, 0.8);
+            font-weight: bold;
+            letter-spacing: 3px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+            z-index: 2;
+        }
+        
+        .btn:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 15px 35px rgba(2, 136, 209, 0.7),
+                        0 0 30px rgba(79, 195, 247, 1);
+        }
+        
+        .btn:active {
+            transform: translateY(4px);
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 50px;
+            height: 250%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(30deg);
+            transition: all 0.8s;
+        }
+        
+        .btn:hover::after {
+            left: 140%;
+        }
+        
+        .image-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            z-index: 5;
+            pointer-events: none;
+        }
+        
+        .image {
+            position: absolute;
+            max-width: 30%;
+            max-height: 40%;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6),
+                        0 0 30px rgba(100, 200, 255, 0.7);
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            filter: brightness(1.1) contrast(1.1);
+        }
+        
+        .final-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 10, 40, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 30;
+            font-size: 7rem;
+            font-weight: bold;
+            text-align: center;
+            animation: finalGlow 3s ease-in-out infinite;
+            flex-direction: column;
+            backdrop-filter: blur(20px);
+        }
+        
+        .final-subtitle {
+            font-size: 3rem;
+            margin-top: 50px;
+            opacity: 0.8;
+            animation: subtitlePulse 3s ease-in-out infinite;
+            font-weight: 300;
+            text-shadow: 0 0 20px rgba(79, 195, 247, 0.7);
+        }
+        
+        @keyframes subtitlePulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        @keyframes finalGlow {
+            0%, 100% { 
+                text-shadow: 0 0 25px #4fc3f7, 0 0 50px #4fc3f7;
+                transform: scale(1);
+            }
+            50% { 
+                text-shadow: 0 0 40px #4fc3f7, 0 0 80px #4fc3f7, 0 0 120px #29b6f6;
+                transform: scale(1.05);
+            }
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 15px #4fc3f7, 0 0 30px #4fc3f7;
+            z-index: 1;
+        }
+        
+        /* 入场动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes slideInTop {
+            from { opacity: 0; transform: translateY(-100px) rotate(-15deg); }
+            to { opacity: 1; transform: translateY(0) rotate(0); }
+        }
+        
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.3); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes rotateIn {
+            from { opacity: 0; transform: rotate(180deg) scale(0.5); }
+            to { opacity: 1; transform: rotate(0) scale(1); }
+        }
+        
+        @keyframes flipIn {
+            from { opacity: 0; transform: rotateY(90deg) scale(0.7); }
+            to { opacity: 1; transform: rotateY(0) scale(1); }
+        }
+        
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.1); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes swingIn {
+            0% { opacity: 0; transform: rotate(-30deg) scale(0.5); }
+            60% { transform: rotate(15deg) scale(1.1); }
+            80% { transform: rotate(-7deg); }
+            100% { opacity: 1; transform: rotate(0) scale(1); }
+        }
+        
+        @keyframes floatIn {
+            from { opacity: 0; transform: translateY(100px) rotate(10deg); }
+            to { opacity: 1; transform: translateY(0) rotate(0); }
+        }
+        
+        /* 出场动画 */
+        @keyframes fadeOut {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0; transform: scale(1.2); }
+        }
+        
+        @keyframes slideOutBottom {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(150px); }
+        }
+        
+        @keyframes zoomOut {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0; transform: scale(0.3); }
+        }
+        
+        @keyframes rotateOut {
+            from { opacity: 1; transform: rotate(0) scale(1); }
+            to { opacity: 0; transform: rotate(180deg) scale(0.5); }
+        }
+        
+        @keyframes flipOut {
+            from { opacity: 1; transform: rotateY(0) scale(1); }
+            to { opacity: 0; transform: rotateY(90deg) scale(0.7); }
+        }
+        
+        @keyframes bounceOut {
+            0% { transform: scale(1); }
+            25% { transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0; transform: scale(0.3); }
+        }
+        
+        @keyframes floatOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-150px); }
+        }
+        
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(0, 40, 80, 0.8);
+            color: #b3e5fc;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            z-index: 100;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(100, 200, 255, 0.4);
+            box-shadow: 0 0 25px rgba(79, 195, 247, 0.7);
+            transition: all 0.3s;
+            display: none;
+        }
+        
+        .music-control:hover {
+            background: rgba(0, 60, 120, 0.9);
+            transform: scale(1.08);
+            box-shadow: 0 0 35px rgba(79, 195, 247, 1);
+        }
+        
+        .info-bar {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(0, 40, 80, 0.8);
+            color: #e1f5fe;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(100, 200, 255, 0.4);
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
+        }
+        
+        .progress-container {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            max-width: 600px;
+            height: 15px;
+            background: rgba(0, 40, 80, 0.6);
+            border-radius: 10px;
+            z-index: 100;
+            display: none;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(100, 200, 255, 0.3);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, #0288d1, #4fc3f7);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.5s;
+            box-shadow: 0 0 15px rgba(2, 136, 209, 0.8);
+        }
+        
+        .music-title {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #b3e5fc;
+            font-size: 1.6rem;
+            text-shadow: 0 0 10px rgba(0,0,0,0.7);
+            z-index: 101;
+            display: none;
+            background: rgba(0, 40, 80, 0.7);
+            padding: 10px 25px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(100, 200, 255, 0.3);
+        }
+        
+        .counter {
+            position: fixed;
+            top: 60px;
+            right: 30px;
+            background: rgba(0, 40, 80, 0.8);
+            color: #e1f5fe;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.4rem;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(100, 200, 255, 0.4);
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
+            display: none;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #b3e5fc;
+            text-shadow: 0 0 15px rgba(79, 195, 247, 0.8);
+            z-index: 100;
+        }
+        
+        .logo span {
+            color: #4fc3f7;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            opacity: 0;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        
+        /* 新增背景元素 - 彩色气泡 */
+        .bubbles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
+            animation: floatBubble 15s linear infinite;
+            filter: blur(10px);
+        }
+        
+        @keyframes floatBubble {
+            0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.4; }
+            100% { transform: translate(100px, -100px) scale(1.5); opacity: 0; }
+        }
+        
+        /* 新增背景元素 - 光晕 */
+        .glow {
+            position: fixed;
+            top: 20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(79,195,247,0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: pulseGlow 8s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+        
+        .glow:nth-child(2) {
+            top: 60%;
+            left: 15%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(41,182,246,0.3) 0%, transparent 70%);
+        }
+        
+        @keyframes pulseGlow {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="bubbles" id="bubbles"></div>
+    <div class="glow"></div>
+    <div class="glow"></div>
+    
+    <div class="logo">青春<span>纪念册</span></div>
+    
+    <div class="container">
+        <div class="message">
+            <h1><i class="fas fa-heart"></i> 青春纪念册 <i class="fas fa-heart"></i></h1>
+            <p>我们的青春只有一次，在这里纪念高中三年</p>
+            <p>所以别眨眼，准备好了么？</p>
+            <button class="btn" id="startBtn">
+                <i class="fas fa-play"></i> 开启青春之旅
+            </button>
+        </div>
+    </div>
+    
+    <div class="image-container" id="imageContainer"></div>
+    
+    <div class="final-message" id="finalMessage">
+        <div><i class="fas fa-star"></i> 致我们青春！ <i class="fas fa-star"></i></div>
+        <div class="final-subtitle">青春永不散场</div>
+    </div>
+    
+    <audio id="bgMusic1">
+        <source src="123.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="bgMusic2">
+        <source src="456.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-music"></i> 背景音乐
+    </div>
+    <div class="info-bar" id="infoBar">
+        <i class="fas fa-images"></i> 已检测到 <span id="imageCount">0</span> 张图片
+    </div>
+    <div class="progress-container" id="progressContainer">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="music-title" id="musicTitle">
+        <i class="fas fa-compact-disc"></i> 青春的序曲
+    </div>
+    <div class="counter" id="counter">
+        <i class="fas fa-camera"></i> 图片: <span id="imageCounter">0</span>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startBtn = document.getElementById('startBtn');
+            const imageContainer = document.getElementById('imageContainer');
+            const finalMessage = document.getElementById('finalMessage');
+            const bgMusic1 = document.getElementById('bgMusic1');
+            const bgMusic2 = document.getElementById('bgMusic2');
+            const musicControl = document.getElementById('musicControl');
+            const container = document.querySelector('.container');
+            const infoBar = document.getElementById('infoBar');
+            const imageCount = document.getElementById('imageCount');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+            const musicTitle = document.getElementById('musicTitle');
+            const counter = document.getElementById('counter');
+            const imageCounterSpan = document.getElementById('imageCounter');
+            const stars = document.getElementById('stars');
+            const bubbles = document.getElementById('bubbles');
+            
+            // 创建星空背景
+            createStars();
+            
+            // 创建气泡背景
+            createBubbles();
+            
+            // 自动检测图片数量
+            let totalImages = 0;
+            let imageList = [];
+            
+            // 尝试检测图片数量
+            detectImageCount();
+            
+            // 音乐控制
+            musicControl.addEventListener('click', function() {
+                if (bgMusic1.paused) {
+                    bgMusic1.play();
+                    bgMusic2.play();
+                    musicControl.innerHTML = '<i class="fas fa-music"></i> 背景音乐';
+                } else {
+                    bgMusic1.pause();
+                    bgMusic2.pause();
+                    musicControl.innerHTML = '<i class="fas fa-pause"></i> 背景音乐';
+                }
+            });
+            
+            startBtn.addEventListener('click', function() {
+                // 播放音乐
+                bgMusic1.play();
+                musicControl.style.display = 'block';
+                progressContainer.style.display = 'block';
+                musicTitle.style.display = 'block';
+                counter.style.display = 'block';
+                
+                // 隐藏初始内容
+                container.style.display = 'none';
+                infoBar.style.display = 'none';
+                
+                // 显示图片容器
+                imageContainer.style.display = 'block';
+                
+                // 开始图片展示
+                startImageShow();
+                
+                // 更新进度条
+                updateProgress();
+            });
+            
+            // 第一首音乐结束事件
+            bgMusic1.addEventListener('ended', function() {
+                musicTitle.innerHTML = '<i class="fas fa-compact-disc"></i> 青春回忆';
+                bgMusic2.play();
+                updateProgress();
+            });
+            
+            // 第二首音乐结束事件
+            bgMusic2.addEventListener('ended', function() {
+                // 所有音乐结束
+                clearInterval(progressInterval);
+                progressBar.style.width = '100%';
+                musicTitle.innerHTML = '<i class="fas fa-compact-disc"></i> 青春终章';
+                
+                setTimeout(function() {
+                    // 停止所有图片展示
+                    clearInterval(imageInterval);
+                    imageContainer.innerHTML = '';
+                    
+                    // 显示结束消息
+                    finalMessage.style.display = 'flex';
+                    
+                    // 4秒后跳转
+                    setTimeout(function() {
+                        window.location.href = 'index.html';
+                    }, 4000);
+                }, 1000);
+            });
+            
+            function detectImageCount() {
+                totalImages = 0;
+                imageList = [];
+                
+                // 检查最多50张图片
+                const maxImagesToCheck = 50;
+                let checked = 0;
+                
+                const checkImage = (index) => {
+                    if (index > maxImagesToCheck) {
+                        imageCount.textContent = totalImages;
+                        return;
+                    }
+                    
+                    const img = new Image();
+                    img.onload = function() {
+                        totalImages++;
+                        imageList.push(index);
+                        if (imageList.length === index) {
+                            checkImage(index + 1);
+                        }
+                    };
+                    img.onerror = function() {
+                        if (imageList.length === index) {
+                            imageCount.textContent = totalImages;
+                        }
+                    };
+                    img.src = `${index}.png`;
+                    checked++;
+                    
+                    // 如果连续5张不存在，停止检测
+                    if (index > 5 && imageList.length < index - 5) {
+                        imageCount.textContent = totalImages;
+                        return;
+                    }
+                    
+                    if (index <= maxImagesToCheck) {
+                        setTimeout(() => checkImage(index + 1), 50);
+                    }
+                };
+                
+                checkImage(1);
+            }
+            
+            let imageInterval;
+            let activeImages = 0;
+            let imageCounter = 0;
+            let progressInterval;
+            
+            function startImageShow() {
+                if (totalImages === 0) {
+                    // 默认使用15张图片
+                    for(let i=1; i<=15; i++) {
+                        imageList.push(i);
+                    }
+                    totalImages = 15;
+                }
+                
+                // 设置图片展示间隔为1秒（1000毫秒）
+                imageInterval = setInterval(function() {
+                    // 最多同时显示3张图片
+                    if (activeImages >= 3) return;
+                    
+                    // 随机选择图片
+                    const imgNum = imageList[Math.floor(Math.random() * imageList.length)];
+                    const img = document.createElement('img');
+                    img.src = `${imgNum}.png`;
+                    img.className = 'image';
+                    
+                    // 随机位置
+                    const left = Math.random() * 70;
+                    const top = Math.random() * 70;
+                    img.style.left = `${left}%`;
+                    img.style.top = `${top}%`;
+                    
+                    // 随机旋转
+                    const rotation = (Math.random() * 60) - 30;
+                    img.style.transform = `rotate(${rotation}deg)`;
+                    
+                    // 随机大小
+                    const scale = 0.7 + Math.random() * 0.6;
+                    img.style.transform += ` scale(${scale})`;
+                    
+                    // 随机选择入场动画
+                    const inAnimations = [
+                        'fadeIn', 'slideInTop', 'zoomIn', 'rotateIn', 
+                        'flipIn', 'bounceIn', 'swingIn', 'floatIn'
+                    ];
+                    const inAnim = inAnimations[Math.floor(Math.random() * inAnimations.length)];
+                    img.style.animation = `${inAnim} 0.3s forwards`;
+                    
+                    imageContainer.appendChild(img);
+                    activeImages++;
+                    imageCounter++;
+                    imageCounterSpan.textContent = imageCounter;
+                    
+                    // 1.5秒后开始消失（原为0.5秒）
+                    setTimeout(function() {
+                        // 随机选择出场动画
+                        const outAnimations = [
+                            'fadeOut', 'slideOutBottom', 'zoomOut', 'rotateOut',
+                            'flipOut', 'bounceOut', 'floatOut'
+                        ];
+                        const outAnim = outAnimations[Math.floor(Math.random() * outAnimations.length)];
+                        img.style.animation = `${outAnim} 0.5s forwards`;
+                        
+                        // 移除图片
+                        setTimeout(function() {
+                            img.remove();
+                            activeImages--;
+                        }, 500);
+                    }, 1500); // 改为1.5秒后开始消失
+                    
+                }, 1000); // 改为1秒（1000毫秒）添加一张图片
+            }
+            
+            function updateProgress() {
+                const totalDuration = getMusicDuration();
+                if (totalDuration <= 0) return;
+                
+                progressInterval = setInterval(function() {
+                    const currentTime1 = bgMusic1.currentTime;
+                    const currentTime2 = bgMusic2.currentTime;
+                    const duration1 = bgMusic1.duration;
+                    
+                    let progress = 0;
+                    if (!bgMusic1.ended) {
+                        progress = (currentTime1 / totalDuration) * 100;
+                    } else {
+                        progress = ((duration1 + currentTime2) / totalDuration) * 100;
+                    }
+                    
+                    progressBar.style.width = `${progress}%`;
+                    
+                    // 如果两首音乐都已结束，清除定时器
+                    if (bgMusic1.ended && bgMusic2.ended) {
+                        clearInterval(progressInterval);
+                    }
+                }, 500);
+            }
+            
+            function getMusicDuration() {
+                const duration1 = bgMusic1.duration;
+                const duration2 = bgMusic2.duration;
+                
+                if (isFinite(duration1) && isFinite(duration2)) {
+                    return duration1 + duration2;
+                }
+                return 180; // 默认3分钟
+            }
+            
+            function createStars() {
+                const starsContainer = document.getElementById('stars');
+                const starCount = 300; // 增加星星数量
+                
+                for (let i = 0; i < starCount; i++) {
+                    const star = document.createElement('div');
+                    star.classList.add('star');
+                    
+                    const size = Math.random() * 3;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    
+                    // 添加随机颜色
+                    const colors = ['#ffffff', '#b3e5fc', '#e1f5fe', '#4fc3f7'];
+                    star.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    star.style.setProperty('--duration', `${Math.random() * 5 + 3}s`);
+                    star.style.setProperty('--delay', `${Math.random() * 5}s`);
+                    
+                    starsContainer.appendChild(star);
+                }
+            }
+            
+            function createBubbles() {
+                const bubblesContainer = document.getElementById('bubbles');
+                const bubbleCount = 20;
+                
+                for (let i = 0; i < bubbleCount; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('bubble');
+                    
+                    const size = Math.random() * 200 + 50;
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    
+                    bubble.style.left = `${Math.random() * 100}%`;
+                    bubble.style.top = `${Math.random() * 100}%`;
+                    
+                    // 添加随机颜色
+                    const colors = [
+                        'rgba(79, 195, 247, 0.3)',
+                        'rgba(41, 182, 246, 0.3)',
+                        'rgba(179, 229, 252, 0.3)',
+                        'rgba(225, 245, 254, 0.3)'
+                    ];
+                    bubble.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random() * colors.length)]} 0%, transparent 70%)`;
+                    
+                    // 随机动画延迟
+                    bubble.style.animationDelay = `${Math.random() * 10}s`;
+                    bubble.style.animationDuration = `${15 + Math.random() * 15}s`;
+                    
+                    bubblesContainer.appendChild(bubble);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

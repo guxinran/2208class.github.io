@@ -31,6 +31,11 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            /* 新增背景设计 */
+            background: 
+                linear-gradient(135deg, rgba(245,247,250,0.9) 0%, rgba(228,231,245,0.9) 100%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233a86ff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-attachment: fixed;
         }
 
         .container {
@@ -113,7 +118,7 @@
             z-index: 1;
         }
 
-        /* 头部样式 */
+        /* 头部样式 - 重点优化部分 */
         header {
             background: var(--gradient);
             color: white;
@@ -123,6 +128,13 @@
             min-height: 80vh;
             display: flex;
             align-items: center;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 0%, transparent 20%);
+            /* 新增书本背景 */
+            background-image: 
+                linear-gradient(135deg, rgba(67, 97, 238, 0.85), rgba(76, 201, 240, 0.85)),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='0.5' d='M20,25 Q40,15 60,25 T100,25 V75 Q60,85 40,75 T20,75 Z M20,25 V75'/%3E%3C/svg%3E");
         }
 
         .header-content {
@@ -135,16 +147,55 @@
 
         .header-content h1 {
             font-family: 'Ma Shan Zheng', cursive;
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1rem;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            line-height: 1.2;
         }
 
-        .header-content p {
+        .class-highlight {
+            color: #fff;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            padding: 0 15px;
+            border-radius: 10px;
+            display: inline-block;
+            transform: rotate(-2deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin: 0 5px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* 标题背景样式 - 新增部分 */
+        .header-subtitle {
+            background: rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
             font-size: 1.4rem;
             max-width: 800px;
             margin: 0 auto 2rem;
-            opacity: 0.9;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-subtitle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, 
+                    rgba(255,255,255,0.1) 0%, 
+                    rgba(255,255,255,0.05) 25%, 
+                    transparent 50%, 
+                    rgba(255,255,255,0.05) 75%, 
+                    rgba(255,255,255,0.1) 100%);
+            z-index: -1;
         }
 
         .school-badge {
@@ -158,6 +209,7 @@
             margin: 0 auto 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             border: 5px solid var(--school-color);
+            animation: pulse 2s infinite;
         }
 
         .school-badge i {
@@ -195,6 +247,9 @@
             top: 0;
             z-index: 100;
             box-shadow: var(--shadow);
+            /* 新增导航背景 */
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            border-bottom: 1px solid rgba(67, 97, 238, 0.1);
         }
 
         .nav-container {
@@ -273,7 +328,23 @@
         /* 签名部分 */
         .sign-section {
             padding: 5rem 0;
-            background: white;
+            /* 新增签名区背景 */
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            position: relative;
+        }
+
+        /* 新增签名区装饰元素 */
+        .sign-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(67, 97, 238, 0.03) 0%, transparent 15%),
+                radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.03) 0%, transparent 15%);
+            pointer-events: none;
         }
 
         .section-title {
@@ -324,6 +395,9 @@
             display: flex;
             flex-direction: column;
             animation: fadeInLeft 1s ease;
+            /* 新增签名板背景 */
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(67, 97, 238, 0.1);
         }
 
         #signatureCanvas {
@@ -344,6 +418,44 @@
             gap: 1.2rem;
             margin-bottom: 1.5rem;
             justify-content: center;
+        }
+        
+        /* 新增姓名输入框样式 */
+        .name-input-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        
+        .name-input-container label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        .name-input-container label i {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+        
+        .name-input {
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.7);
+        }
+        
+        .name-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
         }
 
         .btn {
@@ -388,6 +500,16 @@
             border: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
+        
+        .btn-clear {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+        }
 
         .btn:hover {
             transform: translateY(-5px);
@@ -430,17 +552,28 @@
             box-shadow: var(--shadow);
             padding: 2.5rem;
             animation: fadeInRight 1s ease;
+            position: relative;
+            /* 新增签名展示区背景 */
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(67, 97, 238, 0.1);
         }
 
-        .signatures-display h3 {
+        .signatures-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .signatures-header h3 {
             font-size: 1.8rem;
             color: var(--primary);
-            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
+            margin: 0;
         }
 
-        .signatures-display h3 i {
+        .signatures-header h3 i {
             margin-right: 10px;
             color: var(--secondary);
         }
@@ -459,6 +592,12 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             text-align: center;
             transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 新增签名项背景 */
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(67, 97, 238, 0.1);
         }
 
         .signature-item:hover {
@@ -476,17 +615,53 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            /* 新增签名图片背景 */
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
         }
 
         .signature-img canvas {
             max-width: 100%;
             max-height: 100%;
         }
+        
+        /* 新增签名姓名样式 */
+        .signature-name {
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            text-align: center;
+            word-break: break-word;
+            width: 100%;
+        }
 
-        /* 功能区 */
+        /* 功能区 - 青春纪念册 */
         .features-section {
             padding: 5rem 0;
-            background: linear-gradient(to bottom, #f0f4f8, #e6ebf5);
+            /* 新增功能区背景 */
+            background: 
+                linear-gradient(to bottom, rgba(240, 244, 248, 0.9), rgba(230, 235, 245, 0.9)),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Cpath fill='%233a86ff' fill-opacity='0.03' d='M11,18 C15,18 18,15 18,11 C18,7 15,4 11,4 C7,4 4,7 4,11 C4,15 7,18 11,18 Z M59,43 C63,43 66,40 66,36 C66,32 63,29 59,29 C55,29 52,32 52,36 C52,40 55,43 59,43 Z M16,36 C18,36 20,34 20,32 C20,30 18,28 16,28 C14,28 12,30 12,32 C12,34 14,36 16,36 Z M74,74 C76,74 78,72 78,70 C78,68 76,66 74,66 C72,66 70,68 70,70 C70,72 72,74 74,74 Z M34,90 C36,90 38,88 38,86 C38,84 36,82 34,82 C32,82 30,84 30,86 C30,88 32,90 34,90 Z M90,14 C92,14 94,12 94,10 C94,8 92,6 90,6 C88,6 86,8 86,10 C86,12 88,14 90,14 Z M12,60 C14,60 16,58 16,56 C16,54 14,52 12,52 C10,52 8,54 8,56 C8,58 10,60 12,60 Z M63,31 C65,31 67,29 67,27 C67,25 65,23 63,23 C61,23 59,25 59,27 C59,29 61,31 63,31 Z M32,63 C34,63 36,61 36,59 C36,57 34,55 32,55 C30,55 28,57 28,59 C28,61 30,63 32,63 Z M89,61 C91,61 93,59 93,57 C93,55 91,53 89,53 C87,53 85,55 85,57 C85,59 87,61 89,61 Z M60,91 C62,91 64,89 64,87 C64,85 62,83 60,83 C58,83 56,85 56,87 C56,89 58,91 60,91 Z M35,41 C37,41 39,39 39,37 C39,35 37,33 35,33 C33,33 31,35 31,37 C31,39 33,41 35,41 Z'/%3E%3C/svg%3E");
+            position: relative;
+        }
+
+        /* 新增功能区装饰 */
+        .features-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.05) 0%, transparent 15%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 15%);
+            pointer-events: none;
+        }
+        
+        .features-container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .features-grid {
@@ -506,6 +681,10 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            border-top: 5px solid var(--primary);
+            /* 新增功能卡片背景 */
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(67, 97, 238, 0.1);
         }
 
         .feature-card:hover {
@@ -521,6 +700,18 @@
             justify-content: center;
             color: white;
             font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0,0,0,0.1), transparent);
         }
 
         .feature-content {
@@ -539,6 +730,7 @@
         .feature-content p {
             margin-bottom: 1.5rem;
             flex-grow: 1;
+            color: #555;
         }
 
         .feature-link {
@@ -568,6 +760,10 @@
             background: var(--dark);
             color: white;
             padding: 4rem 0 2rem;
+            /* 新增页脚背景 */
+            background: 
+                linear-gradient(to bottom, #2d3748, #1a202c),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M11,18c3.866,0,7-3.134,7-7s-3.134-7-7-7s-7,3.134-7,7S7.134,18,11,18z M59,43c3.866,0,7-3.134,7-7s-3.134-7-7-7s-7,3.134-7,7S55.134,43,59,43z M16,36c1.657,0,3-1.343,3-3s-1.343-3-3-3s-3,1.343-3,3S14.343,36,16,36z M74,74c1.657,0,3-1.343,3-3s-1.343-3-3-3s-3,1.343-3,3S72.343,74,74,74z M34,90c1.657,0,3-1.343,3-3s-1.343-3-3-3s-3,1.343-3,3S32.343,90,34,90z M90,14c1.657,0,3-1.343,3-3s-1.343-3-3-3s-3,1.343-3,3S88.343,14,90,14z M12,60c1.105,0,2-0.895,2-2s-0.895-2-2-2s-2,0.895-2,2S10.895,60,12,60z M63,31c2.21,0,4-1.79,4-4s-1.79-4-4-4s-4,1.79-4,4S60.79,31,63,31z M32,63c2.76,0,5-2.24,5-5s-2.24-5-5-5s-5,2.24-5,5S29.24,63,32,63z M89,61c2.21,0,4-1.79,4-4s-1.79-4-4-4s-4,1.79-4,4S86.79,61,89,61z M60,91c1.105,0,2-0.895,2-2s-0.895-2-2-2s-2,0.895-2,2S58.895,91,60,91z M35,41c1.105,0,2-0.895,2-2s-0.895-2-2-2s-2,0.895-2,2S33.895,41,35,41z'/%3E%3C/svg%3E");
         }
 
         .footer-content {
@@ -656,6 +852,77 @@
             color: #a0aec0;
             font-size: 1rem;
         }
+        
+        /* 密码模态框 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            position: relative;
+            animation: modalFade 0.3s ease;
+        }
+        
+        .modal-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .modal-body {
+            margin-bottom: 1.5rem;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #999;
+        }
 
         /* 动画 */
         @keyframes fadeInDown {
@@ -702,15 +969,42 @@
                 transform: translateY(-10px) translateX(-50%);
             }
         }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+        }
+        
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         /* 响应式设计 */
         @media (max-width: 992px) {
             .header-content h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             
-            .header-content p {
+            .header-subtitle {
                 font-size: 1.2rem;
+                padding: 0.7rem 1.5rem;
             }
             
             .countdown-title {
@@ -728,6 +1022,10 @@
             .countdown-value {
                 font-size: 2rem;
             }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -736,7 +1034,12 @@
             }
             
             .header-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1rem;
+                padding: 0.6rem 1.2rem;
             }
             
             .nav-links {
@@ -789,15 +1092,20 @@
             .countdown-value {
                 font-size: 1.8rem;
             }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
             .header-content h1 {
-                font-size: 2rem;
+                font-size: 2.3rem;
             }
             
-            .header-content p {
-                font-size: 1rem;
+            .header-subtitle {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
             }
             
             .btn {
@@ -874,7 +1182,7 @@
         </div>
     </section>
 
-    <!-- 头部 -->
+    <!-- 头部 - 重点修改部分 -->
     <header>
         <div class="decoration"></div>
         <div class="container">
@@ -882,8 +1190,10 @@
                 <div class="school-badge">
                     <i class="fas fa-school"></i>
                 </div>
-                <h1>青春不散场</h1>
-                <p>昭州中学2025届2208班毕业纪念网站 · 珍藏我们共同的回忆与梦想</p>
+                <h1>青春不散场 <span class="class-highlight">2208班</span></h1>
+                <div class="header-subtitle">
+                    昭州中学2025届2208班毕业纪念网站 · 珍藏我们共同的回忆与梦想
+                </div>
                 <a href="#sign" class="btn btn-secondary" style="margin-top: 2rem;">
                     <i class="fas fa-signature"></i> 破釜沉舟搏六月，蟾宫折桂志必酬
                 </a>
@@ -903,10 +1213,9 @@
             <ul class="nav-links">
                 <li><a href="#"><i class="fas fa-home"></i> 首页</a></li>
                 <li><a href="#sign"><i class="fas fa-signature"></i> 签名墙</a></li>
-                <li><a href="banjixiangce.html"><i class="fas fa-images"></i> 班级相册</a></li>
-                <li><a href="tongxuelu.html"><i class="fas fa-user-friends"></i> 同学录</a></li>
-                <li><a href="shiguangchanglang.html"><i class="fas fa-history"></i> 时光长廊</a></li>
-                <li><a href="liuyanban.html"><i class="fas fa-comments"></i> 留言板</a></li>
+                <li><a href="#features"><i class="fas fa-user-friends"></i> 同学录</a></li>
+                <li><a href="#features"><i class="fas fa-history"></i> 时光长廊</a></li>
+                <li><a href="#features"><i class="fas fa-comments"></i> 留言板</a></li>
             </ul>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -924,6 +1233,13 @@
             <div class="sign-container">
                 <div class="sign-board">
                     <canvas id="signatureCanvas"></canvas>
+                    
+                    <!-- 姓名输入区域 -->
+                    <div class="name-input-container">
+                        <label for="nameInput"><i class="fas fa-user"></i> 请输入你的名字</label>
+                        <input type="text" id="nameInput" class="name-input" placeholder="例如：张明" maxlength="20">
+                    </div>
+                    
                     <div class="sign-controls">
                         <div class="color-picker">
                             <div class="color-option active" style="background-color: #000000;" data-color="#000000"></div>
@@ -941,48 +1257,23 @@
                     </div>
                 </div>
                 <div class="signatures-display">
-                    <h3><i class="fas fa-star"></i> 同学签名展示</h3>
-                    <div class="signatures-grid">
+                    <div class="signatures-header">
+                        <h3><i class="fas fa-star"></i> 同学签名展示</h3>
+                        <button id="clearAllBtn" class="btn btn-clear">
+                            <i class="fas fa-trash-alt"></i> 清除所有签名
+                        </button>
+                    </div>
+                    <div class="signatures-grid" id="signaturesGrid">
                         <!-- 签名会动态添加到这里 -->
-                        <div class="signature-item">
-                            <div class="signature-img">
-                                <canvas width="120" height="80"></canvas>
-                            </div>
-                        </div>
-                        <div class="signature-item">
-                            <div class="signature-img">
-                                <canvas width="120" height="80"></canvas>
-                            </div>
-                        </div>
-                        <div class="signature-item">
-                            <div class="signature-img">
-                                <canvas width="120" height="80"></canvas>
-                            </div>
-                        </div>
-                        <div class="signature-item">
-                            <div class="signature-img">
-                                <canvas width="120" height="80"></canvas>
-                            </div>
-                        </div>
-                        <div class="signature-item">
-                            <div class="signature-img">
-                                <canvas width="120" height="80"></canvas>
-                            </div>
-                        </div>
-                        <div class="signature-item">
-                            <div class="signature-img">
-                                <canvas width="120" height="80"></canvas>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 功能区 -->
-    <section class="features-section">
-        <div class="container">
+    <!-- 功能区 - 青春纪念册 -->
+    <section id="features" class="features-section">
+        <div class="container features-container">
             <div class="section-title">
                 <h2>青春纪念册</h2>
                 <p>珍藏我们共同的校园记忆</p>
@@ -990,22 +1281,12 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-img">
-                        <i class="fas fa-images"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3>班级相册</h3>
-                        <p>浏览我们共同的回忆，从入学到毕业的点点滴滴，每一张照片都记录着昭州中学2208班的青春故事。</p>
-                        <a href="banjixiangce.html" class="feature-link">浏览相册 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-img">
                         <i class="fas fa-user-friends"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>同学录</h3>
-                        <p>查看班级同学的联系方式和个人寄语，即使毕业后也能保持联系，让昭州中学的友谊长存。</p>
-                        <a href="tongxuelu.html" class="feature-link">查看同学录 <i class="fas fa-arrow-right"></i></a>
+                        <h3>查看回忆录</h3>
+                        <p>点我查看回忆录</p>
+                        <a href="classmates.html" class="feature-link">查看回忆录 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="feature-card">
@@ -1013,9 +1294,9 @@
                         <i class="fas fa-history"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>时光长廊</h3>
-                        <p>回顾我们一起走过的日子，从开学典礼到毕业晚会，昭州中学的每一个重要时刻都值得珍藏。</p>
-                        <a href="shiguangchanglang.html" class="feature-link">回顾时光 <i class="fas fa-arrow-right"></i></a>
+                        <h3>这里还没有写</h3>
+                        <p>别点</p>
+                        <a href="timeline.html" class="feature-link">别点 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="feature-card">
@@ -1023,9 +1304,19 @@
                         <i class="fas fa-comments"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>留言板</h3>
-                        <p>给老师和同学留下你的祝福和寄语，让这些温暖的话语成为昭州中学2025届2208班永远的纪念。</p>
-                        <a href="liuyanban.html" class="feature-link">发表留言 <i class="fas fa-arrow-right"></i></a>
+                        <h3>没有内容</h3>
+                        <p>这里是真的没有内容</p>
+                        <a href="messages.html" class="feature-link">还没有开始写 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>不知道写什么</h3>
+                        <p>先别点吧</p>
+                        <a href="activities.html" class="feature-link">以后再说 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1044,9 +1335,9 @@
                 <div class="footer-column">
                     <h3>联系方式</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-envelope"></i> 2208@zhaozhou.edu.cn</a></li>
-                        <li><a href="#"><i class="fas fa-phone"></i> 138-8888-2208</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 昭州中学校区</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> 158249253@qq.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> 2208</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 平乐县昭州中学</a></li>
                     </ul>
                     <button id="adminBtn" class="btn btn-admin">
                         <i class="fas fa-user-cog"></i> 联系网站管理员
@@ -1055,9 +1346,9 @@
                 <div class="footer-column qrcode-container">
                     <h3>手机访问</h3>
                     <div class="qrcode">
-                        <img src="https://i0.hdslb.com/bfs/openplatform/040c55ecd95d4c605f0838abb02a95d28979b950.jpg" alt="网站二维码">
+                        <img src="https://i0.hdslb.com/bfs/openplatform/57a466532bb7329f0274775601178ef71b181d32.jpg" alt="网站二维码">
                     </div>
-                    <div class="qrcode-text">扫码查看昭州中学2208班毕业纪念网站</div>
+                    <div class="qrcode-text">扫码查看昭州中学2208班毕业纪念网站<br>（本网站没有备案！别用微信扫！）</div>
                 </div>
             </div>
             <div class="copyright">
@@ -1065,6 +1356,28 @@
             </div>
         </div>
     </footer>
+    
+    <!-- 密码模态框 -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" id="closeModal">&times;</div>
+            <div class="modal-header">
+                <h3><i class="fas fa-lock"></i> 管理员认证</h3>
+            </div>
+            <div class="modal-body">
+                <p>请输入管理员密码以清除所有签名</p>
+                <input type="password" id="adminPassword" class="password-input" placeholder="请输入密码">
+            </div>
+            <div class="modal-footer">
+                <button id="confirmClearBtn" class="btn btn-primary">
+                    <i class="fas fa-check"></i> 确认清除
+                </button>
+                <button id="cancelBtn" class="btn btn-outline">
+                    <i class="fas fa-times"></i> 取消
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
         // 高考倒计时功能
@@ -1116,8 +1429,15 @@
             const clearBtn = document.getElementById('clearBtn');
             const saveBtn = document.getElementById('saveBtn');
             const colorOptions = document.querySelectorAll('.color-option');
-            const signaturesGrid = document.querySelector('.signatures-grid');
+            const signaturesGrid = document.getElementById('signaturesGrid');
             const adminBtn = document.getElementById('adminBtn');
+            const nameInput = document.getElementById('nameInput');
+            const clearAllBtn = document.getElementById('clearAllBtn');
+            const passwordModal = document.getElementById('passwordModal');
+            const closeModal = document.getElementById('closeModal');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const confirmClearBtn = document.getElementById('confirmClearBtn');
+            const adminPasswordInput = document.getElementById('adminPassword');
             
             // 设置Canvas尺寸
             function resizeCanvas() {
@@ -1130,17 +1450,31 @@
                 ctx.lineCap = 'round';
                 ctx.lineJoin = 'round';
                 ctx.strokeStyle = '#000000';
+                
+                // 绘制初始提示文字
+                ctx.font = "24px 'Ma Shan Zheng', cursive";
+                ctx.fillStyle = "#e2e8f0";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.fillText("请在此处签名", canvas.width/2, canvas.height/2);
             }
             
             resizeCanvas();
             window.addEventListener('resize', resizeCanvas);
             
-            // 签名功能
+            // 签名功能 - 修复多笔画问题
             let isDrawing = false;
             let lastX = 0;
             let lastY = 0;
+            let hasInitialText = true;
             
             function startDrawing(e) {
+                // 清除提示文字
+                if (hasInitialText) {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    hasInitialText = false;
+                }
+                
                 isDrawing = true;
                 [lastX, lastY] = getCoordinates(e);
             }
@@ -1186,14 +1520,32 @@
             canvas.addEventListener('mouseup', stopDrawing);
             canvas.addEventListener('mouseout', stopDrawing);
             
-            // 触摸事件
-            canvas.addEventListener('touchstart', startDrawing);
-            canvas.addEventListener('touchmove', draw);
-            canvas.addEventListener('touchend', stopDrawing);
+            // 触摸事件 - 添加支持
+            canvas.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                startDrawing(e.touches[0]);
+            });
+            
+            canvas.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+                draw(e.touches[0]);
+            });
+            
+            canvas.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                stopDrawing();
+            });
             
             // 清除按钮
             clearBtn.addEventListener('click', function() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
+                // 重新绘制提示文字
+                ctx.font = "24px 'Ma Shan Zheng', cursive";
+                ctx.fillStyle = "#e2e8f0";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.fillText("请在此处签名", canvas.width/2, canvas.height/2);
+                hasInitialText = true;
             });
             
             // 颜色选择
@@ -1206,7 +1558,15 @@
             });
             
             // 保存签名
-            saveBtn.addEventListener('click', function() {                
+            saveBtn.addEventListener('click', function() { 
+                // 检查是否输入了姓名
+                const studentName = nameInput.value.trim();
+                if (!studentName) {
+                    showNotification('请输入你的名字', 'error');
+                    nameInput.focus();
+                    return;
+                }
+                
                 // 检查是否有签名
                 const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 let isEmpty = true;
@@ -1219,7 +1579,7 @@
                 }
                 
                 if (isEmpty) {
-                    alert('请先签名');
+                    showNotification('请先签名', 'error');
                     return;
                 }
                 
@@ -1241,41 +1601,168 @@
                 signatureImg.appendChild(signatureCanvas);
                 signatureItem.appendChild(signatureImg);
                 
+                // 添加学生姓名
+                const nameElement = document.createElement('div');
+                nameElement.className = 'signature-name';
+                nameElement.textContent = studentName;
+                signatureItem.appendChild(nameElement);
+                
                 // 添加到网格
                 signaturesGrid.insertBefore(signatureItem, signaturesGrid.firstChild);
                 
-                // 清除画布
+                // 保存到localStorage
+                saveSignatureToLocalStorage(studentName, canvas.toDataURL());
+                
+                // 清除画布和姓名输入框
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
+                nameInput.value = '';
+                
+                // 重新绘制提示文字
+                ctx.font = "24px 'Ma Shan Zheng', cursive";
+                ctx.fillStyle = "#e2e8f0";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.fillText("请在此处签名", canvas.width/2, canvas.height/2);
+                hasInitialText = true;
                 
                 // 显示成功消息
-                const successMsg = document.createElement('div');
-                successMsg.textContent = '签名保存成功！';
-                successMsg.style.position = 'fixed';
-                successMsg.style.top = '20px';
-                successMsg.style.left = '50%';
-                successMsg.style.transform = 'translateX(-50%)';
-                successMsg.style.backgroundColor = 'rgba(67, 97, 238, 0.9)';
-                successMsg.style.color = 'white';
-                successMsg.style.padding = '12px 25px';
-                successMsg.style.borderRadius = '30px';
-                successMsg.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-                successMsg.style.zIndex = '1000';
-                successMsg.style.fontWeight = '600';
-                successMsg.style.transition = 'all 0.3s';
-                document.body.appendChild(successMsg);
+                showNotification('签名保存成功！');
+            });
+            
+            // 保存签名到localStorage
+            function saveSignatureToLocalStorage(name, dataUrl) {
+                let signatures = JSON.parse(localStorage.getItem('classSignatures')) || [];
+                
+                // 添加到数组开头
+                signatures.unshift({
+                    name: name,
+                    dataUrl: dataUrl,
+                    timestamp: new Date().toISOString()
+                });
+                
+                // 最多保存50个签名
+                if (signatures.length > 50) {
+                    signatures = signatures.slice(0, 50);
+                }
+                
+                localStorage.setItem('classSignatures', JSON.stringify(signatures));
+            }
+            
+            // 从localStorage加载签名
+            function loadSignaturesFromLocalStorage() {
+                const signatures = JSON.parse(localStorage.getItem('classSignatures')) || [];
+                
+                signatures.forEach(signature => {
+                    const signatureItem = document.createElement('div');
+                    signatureItem.className = 'signature-item';
+                    
+                    const signatureImg = document.createElement('div');
+                    signatureImg.className = 'signature-img';
+                    
+                    const signatureCanvas = document.createElement('canvas');
+                    signatureCanvas.width = 120;
+                    signatureCanvas.height = 80;
+                    const signatureCtx = signatureCanvas.getContext('2d');
+                    
+                    // 创建图像并绘制
+                    const img = new Image();
+                    img.onload = function() {
+                        signatureCtx.drawImage(img, 0, 0, signatureCanvas.width, signatureCanvas.height);
+                    };
+                    img.src = signature.dataUrl;
+                    
+                    signatureImg.appendChild(signatureCanvas);
+                    signatureItem.appendChild(signatureImg);
+                    
+                    // 添加学生姓名
+                    const nameElement = document.createElement('div');
+                    nameElement.className = 'signature-name';
+                    nameElement.textContent = signature.name;
+                    signatureItem.appendChild(nameElement);
+                    
+                    // 添加到网格
+                    signaturesGrid.appendChild(signatureItem);
+                });
+            }
+            
+            // 清除所有签名
+            function clearAllSignatures() {
+                // 清除本地存储
+                localStorage.removeItem('classSignatures');
+                
+                // 清除页面上的签名
+                signaturesGrid.innerHTML = '';
+                
+                // 显示通知
+                showNotification('所有签名已清除！');
+            }
+            
+            // 显示通知函数
+            function showNotification(message, type = 'success') {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.position = 'fixed';
+                notification.style.top = '20px';
+                notification.style.left = '50%';
+                notification.style.transform = 'translateX(-50%)';
+                notification.style.backgroundColor = type === 'success' ? 'rgba(67, 97, 238, 0.9)' : 'rgba(255, 107, 107, 0.9)';
+                notification.style.color = 'white';
+                notification.style.padding = '12px 25px';
+                notification.style.borderRadius = '30px';
+                notification.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                notification.style.zIndex = '1000';
+                notification.style.fontWeight = '600';
+                notification.style.transition = 'all 0.3s';
+                notification.style.opacity = '0';
+                notification.style.animation = 'fadeInDown 0.5s forwards';
+                
+                document.body.appendChild(notification);
                 
                 setTimeout(() => {
-                    successMsg.style.top = '0';
-                    successMsg.style.opacity = '0';
+                    notification.style.opacity = '1';
                     setTimeout(() => {
-                        document.body.removeChild(successMsg);
-                    }, 500);
-                }, 2000);
-            });
+                        notification.style.top = '0';
+                        notification.style.opacity = '0';
+                        setTimeout(() => {
+                            document.body.removeChild(notification);
+                        }, 500);
+                    }, 2000);
+                }, 100);
+            }
             
             // 管理员按钮
             adminBtn.addEventListener('click', function() {
                 window.open('https://i0.hdslb.com/bfs/openplatform/6e427000a2eaf77a78f6ba4551753502a8466467.png', '_blank');
+            });
+            
+            // 清除所有签名按钮
+            clearAllBtn.addEventListener('click', function() {
+                passwordModal.style.display = 'flex';
+            });
+            
+            // 关闭模态框
+            closeModal.addEventListener('click', function() {
+                passwordModal.style.display = 'none';
+                adminPasswordInput.value = '';
+            });
+            
+            cancelBtn.addEventListener('click', function() {
+                passwordModal.style.display = 'none';
+                adminPasswordInput.value = '';
+            });
+            
+            // 确认清除签名
+            confirmClearBtn.addEventListener('click', function() {
+                const password = adminPasswordInput.value;
+                if (password === '2208') {
+                    clearAllSignatures();
+                    passwordModal.style.display = 'none';
+                    adminPasswordInput.value = '';
+                } else {
+                    showNotification('密码错误，请重试！', 'error');
+                    adminPasswordInput.value = '';
+                    adminPasswordInput.focus();
+                }
             });
             
             // 移动端菜单
@@ -1320,6 +1807,9 @@
                     }
                 }
             });
+            
+            // 页面加载时加载签名
+            loadSignaturesFromLocalStorage();
         });
     </script>
 </body>
