@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>蓝色青春纪念册 - 梦幻闪回</title>
+    <title>青春纪念册 - 112张珍贵回忆</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -65,7 +65,6 @@
             z-index: -1;
         }
         
-        /* 新增背景装饰元素 */
         .message::after {
             content: '';
             position: absolute;
@@ -200,6 +199,7 @@
             animation-duration: 0.5s;
             animation-fill-mode: forwards;
             filter: brightness(1.1) contrast(1.1);
+            pointer-events: auto;
         }
         
         .final-message {
@@ -244,14 +244,6 @@
                 text-shadow: 0 0 40px #4fc3f7, 0 0 80px #4fc3f7, 0 0 120px #29b6f6;
                 transform: scale(1.05);
             }
-        }
-        
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 0 15px #4fc3f7, 0 0 30px #4fc3f7;
-            z-index: 1;
         }
         
         /* 入场动画 */
@@ -524,6 +516,76 @@
             0% { transform: scale(0.8); opacity: 0.5; }
             100% { transform: scale(1.2); opacity: 0.8; }
         }
+        
+        /* 新增统计信息 */
+        .image-stat {
+            position: fixed;
+            top: 120px;
+            right: 30px;
+            background: rgba(0, 40, 80, 0.8);
+            color: #e1f5fe;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.4rem;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(100, 200, 255, 0.4);
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
+            display: none;
+        }
+        
+        /* 新增图片预览功能 */
+        .preview-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 5, 20, 0.92);
+            backdrop-filter: blur(15px);
+            z-index: 40;
+            display: none;
+        }
+        
+        .image-preview {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8),
+                        0 0 50px rgba(100, 200, 255, 0.9);
+            object-fit: contain;
+            border: 6px solid rgba(255, 255, 255, 0.4);
+            z-index: 50;
+            display: none;
+            animation: previewZoom 0.5s forwards;
+        }
+        
+        @keyframes previewZoom {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(0.9); opacity: 1; }
+        }
+        
+        .close-preview {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            font-size: 2.5rem;
+            color: #b3e5fc;
+            cursor: pointer;
+            z-index: 55;
+            display: none;
+            text-shadow: 0 0 15px rgba(79, 195, 247, 0.8);
+            transition: all 0.3s;
+        }
+        
+        .close-preview:hover {
+            transform: scale(1.2);
+            color: #e1f5fe;
+        }
     </style>
 </head>
 <body>
@@ -538,7 +600,7 @@
         <div class="message">
             <h1><i class="fas fa-heart"></i> 青春纪念册 <i class="fas fa-heart"></i></h1>
             <p>我们的青春只有一次，在这里纪念高中三年</p>
-            <p>所以别眨眼，准备好了么？</p>
+            <p>112张珍贵照片，带你重温青春时光</p>
             <button class="btn" id="startBtn">
                 <i class="fas fa-play"></i> 开启青春之旅
             </button>
@@ -548,23 +610,20 @@
     <div class="image-container" id="imageContainer"></div>
     
     <div class="final-message" id="finalMessage">
-        <div><i class="fas fa-star"></i> 致我们青春！ <i class="fas fa-star"></i></div>
+        <div><i class="fas fa-star"></i> 致我们的青春！ <i class="fas fa-star"></i></div>
         <div class="final-subtitle">青春永不散场</div>
     </div>
     
+    <!-- 只保留第一首背景音乐 -->
     <audio id="bgMusic1">
         <source src="123.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="bgMusic2">
-        <source src="456.mp3" type="audio/mpeg">
     </audio>
     
     <div class="music-control" id="musicControl">
         <i class="fas fa-music"></i> 背景音乐
     </div>
     <div class="info-bar" id="infoBar">
-        <i class="fas fa-images"></i> 已检测到 <span id="imageCount">0</span> 张图片
+        <i class="fas fa-images"></i> 已加载 <span id="imageCount">112</span> 张青春照片
     </div>
     <div class="progress-container" id="progressContainer">
         <div class="progress-bar" id="progressBar"></div>
@@ -573,7 +632,17 @@
         <i class="fas fa-compact-disc"></i> 青春的序曲
     </div>
     <div class="counter" id="counter">
-        <i class="fas fa-camera"></i> 图片: <span id="imageCounter">0</span>
+        <i class="fas fa-camera"></i> 图片: <span id="imageCounter">0</span>/112
+    </div>
+    <div class="image-stat" id="imageStat">
+        <i class="fas fa-history"></i> 剩余: <span id="remainingImages">112</span> 张
+    </div>
+    
+    <!-- 图片预览元素 -->
+    <div class="preview-overlay" id="previewOverlay"></div>
+    <img class="image-preview" id="imagePreview" src="" alt="预览">
+    <div class="close-preview" id="closePreview">
+        <i class="fas fa-times"></i>
     </div>
     
     <script>
@@ -582,7 +651,6 @@
             const imageContainer = document.getElementById('imageContainer');
             const finalMessage = document.getElementById('finalMessage');
             const bgMusic1 = document.getElementById('bgMusic1');
-            const bgMusic2 = document.getElementById('bgMusic2');
             const musicControl = document.getElementById('musicControl');
             const container = document.querySelector('.container');
             const infoBar = document.getElementById('infoBar');
@@ -594,6 +662,11 @@
             const imageCounterSpan = document.getElementById('imageCounter');
             const stars = document.getElementById('stars');
             const bubbles = document.getElementById('bubbles');
+            const imageStat = document.getElementById('imageStat');
+            const remainingImagesSpan = document.getElementById('remainingImages');
+            const previewOverlay = document.getElementById('previewOverlay');
+            const imagePreview = document.getElementById('imagePreview');
+            const closePreview = document.getElementById('closePreview');
             
             // 创建星空背景
             createStars();
@@ -601,33 +674,39 @@
             // 创建气泡背景
             createBubbles();
             
-            // 自动检测图片数量
-            let totalImages = 0;
+            // 固定为112张图片
+            const TOTAL_IMAGES = 112;
             let imageList = [];
+            let remainingImages = [];
             
-            // 尝试检测图片数量
-            detectImageCount();
+            // 初始化图片列表
+            function initImageList() {
+                imageList = Array.from({length: TOTAL_IMAGES}, (_, i) => i + 1);
+                remainingImages = [...imageList];
+                remainingImagesSpan.textContent = remainingImages.length;
+            }
+            
+            initImageList();
             
             // 音乐控制
             musicControl.addEventListener('click', function() {
                 if (bgMusic1.paused) {
-                    bgMusic1.play();
-                    bgMusic2.play();
-                    musicControl.innerHTML = '<i class="fas fa-music"></i> 背景音乐';
+                    bgMusic1.play().catch(e => console.log("音乐播放失败:", e));
+                    musicControl.innerHTML = '<i class="fas fa-pause"></i> 暂停音乐';
                 } else {
                     bgMusic1.pause();
-                    bgMusic2.pause();
-                    musicControl.innerHTML = '<i class="fas fa-pause"></i> 背景音乐';
+                    musicControl.innerHTML = '<i class="fas fa-play"></i> 播放音乐';
                 }
             });
             
             startBtn.addEventListener('click', function() {
                 // 播放音乐
-                bgMusic1.play();
+                bgMusic1.play().catch(e => console.log("音乐播放失败:", e));
                 musicControl.style.display = 'block';
                 progressContainer.style.display = 'block';
                 musicTitle.style.display = 'block';
                 counter.style.display = 'block';
+                imageStat.style.display = 'block';
                 
                 // 隐藏初始内容
                 container.style.display = 'none';
@@ -643,16 +722,8 @@
                 updateProgress();
             });
             
-            // 第一首音乐结束事件
+            // 音乐结束事件 - 修改为第一首音乐结束后跳转
             bgMusic1.addEventListener('ended', function() {
-                musicTitle.innerHTML = '<i class="fas fa-compact-disc"></i> 青春回忆';
-                bgMusic2.play();
-                updateProgress();
-            });
-            
-            // 第二首音乐结束事件
-            bgMusic2.addEventListener('ended', function() {
-                // 所有音乐结束
                 clearInterval(progressInterval);
                 progressBar.style.width = '100%';
                 musicTitle.innerHTML = '<i class="fas fa-compact-disc"></i> 青春终章';
@@ -665,56 +736,12 @@
                     // 显示结束消息
                     finalMessage.style.display = 'flex';
                     
-                    // 4秒后跳转
+                    // 4秒后跳转到 index.html
                     setTimeout(function() {
                         window.location.href = 'index.html';
                     }, 4000);
                 }, 1000);
             });
-            
-            function detectImageCount() {
-                totalImages = 0;
-                imageList = [];
-                
-                // 检查最多50张图片
-                const maxImagesToCheck = 50;
-                let checked = 0;
-                
-                const checkImage = (index) => {
-                    if (index > maxImagesToCheck) {
-                        imageCount.textContent = totalImages;
-                        return;
-                    }
-                    
-                    const img = new Image();
-                    img.onload = function() {
-                        totalImages++;
-                        imageList.push(index);
-                        if (imageList.length === index) {
-                            checkImage(index + 1);
-                        }
-                    };
-                    img.onerror = function() {
-                        if (imageList.length === index) {
-                            imageCount.textContent = totalImages;
-                        }
-                    };
-                    img.src = `${index}.png`;
-                    checked++;
-                    
-                    // 如果连续5张不存在，停止检测
-                    if (index > 5 && imageList.length < index - 5) {
-                        imageCount.textContent = totalImages;
-                        return;
-                    }
-                    
-                    if (index <= maxImagesToCheck) {
-                        setTimeout(() => checkImage(index + 1), 50);
-                    }
-                };
-                
-                checkImage(1);
-            }
             
             let imageInterval;
             let activeImages = 0;
@@ -722,23 +749,20 @@
             let progressInterval;
             
             function startImageShow() {
-                if (totalImages === 0) {
-                    // 默认使用15张图片
-                    for(let i=1; i<=15; i++) {
-                        imageList.push(i);
-                    }
-                    totalImages = 15;
-                }
-                
                 // 设置图片展示间隔为1秒（1000毫秒）
                 imageInterval = setInterval(function() {
                     // 最多同时显示3张图片
-                    if (activeImages >= 3) return;
+                    if (activeImages >= 3 || remainingImages.length === 0) return;
                     
                     // 随机选择图片
-                    const imgNum = imageList[Math.floor(Math.random() * imageList.length)];
+                    const randomIndex = Math.floor(Math.random() * remainingImages.length);
+                    const imgNum = remainingImages[randomIndex];
+                    remainingImages.splice(randomIndex, 1);
+                    remainingImagesSpan.textContent = remainingImages.length;
+                    
                     const img = document.createElement('img');
-                    img.src = `${imgNum}.png`;
+                    img.src = `${imgNum}.png`; // 读取本地图片
+                    img.dataset.num = imgNum;
                     img.className = 'image';
                     
                     // 随机位置
@@ -763,12 +787,20 @@
                     const inAnim = inAnimations[Math.floor(Math.random() * inAnimations.length)];
                     img.style.animation = `${inAnim} 0.3s forwards`;
                     
+                    // 点击图片预览
+                    img.addEventListener('click', function() {
+                        imagePreview.src = this.src;
+                        previewOverlay.style.display = 'block';
+                        imagePreview.style.display = 'block';
+                        closePreview.style.display = 'block';
+                    });
+                    
                     imageContainer.appendChild(img);
                     activeImages++;
                     imageCounter++;
                     imageCounterSpan.textContent = imageCounter;
                     
-                    // 1.5秒后开始消失（原为0.5秒）
+                    // 1.5秒后开始消失
                     setTimeout(function() {
                         // 随机选择出场动画
                         const outAnimations = [
@@ -783,9 +815,9 @@
                             img.remove();
                             activeImages--;
                         }, 500);
-                    }, 1500); // 改为1.5秒后开始消失
+                    }, 1500);
                     
-                }, 1000); // 改为1秒（1000毫秒）添加一张图片
+                }, 1000);
             }
             
             function updateProgress() {
@@ -793,39 +825,27 @@
                 if (totalDuration <= 0) return;
                 
                 progressInterval = setInterval(function() {
-                    const currentTime1 = bgMusic1.currentTime;
-                    const currentTime2 = bgMusic2.currentTime;
-                    const duration1 = bgMusic1.duration;
-                    
-                    let progress = 0;
-                    if (!bgMusic1.ended) {
-                        progress = (currentTime1 / totalDuration) * 100;
-                    } else {
-                        progress = ((duration1 + currentTime2) / totalDuration) * 100;
-                    }
-                    
+                    const currentTime = bgMusic1.currentTime;
+                    const progress = (currentTime / totalDuration) * 100;
                     progressBar.style.width = `${progress}%`;
                     
-                    // 如果两首音乐都已结束，清除定时器
-                    if (bgMusic1.ended && bgMusic2.ended) {
+                    // 如果音乐结束，清除定时器
+                    if (bgMusic1.ended) {
                         clearInterval(progressInterval);
                     }
                 }, 500);
             }
             
             function getMusicDuration() {
-                const duration1 = bgMusic1.duration;
-                const duration2 = bgMusic2.duration;
-                
-                if (isFinite(duration1) && isFinite(duration2)) {
-                    return duration1 + duration2;
+                if (isFinite(bgMusic1.duration)) {
+                    return bgMusic1.duration;
                 }
                 return 180; // 默认3分钟
             }
             
             function createStars() {
                 const starsContainer = document.getElementById('stars');
-                const starCount = 300; // 增加星星数量
+                const starCount = 300;
                 
                 for (let i = 0; i < starCount; i++) {
                     const star = document.createElement('div');
@@ -880,6 +900,20 @@
                     bubblesContainer.appendChild(bubble);
                 }
             }
+            
+            // 关闭预览
+            closePreview.addEventListener('click', function() {
+                previewOverlay.style.display = 'none';
+                imagePreview.style.display = 'none';
+                closePreview.style.display = 'none';
+            });
+            
+            // 点击预览层关闭预览
+            previewOverlay.addEventListener('click', function() {
+                previewOverlay.style.display = 'none';
+                imagePreview.style.display = 'none';
+                closePreview.style.display = 'none';
+            });
         });
     </script>
 </body>

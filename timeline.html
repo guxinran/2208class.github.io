@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毕业季 · 青春纪念册</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* 装饰元素 */
+        .decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .cap {
+            top: 10%;
+            left: 5%;
+            font-size: 80px;
+            transform: rotate(-15deg);
+        }
+        
+        .book {
+            top: 15%;
+            right: 7%;
+            font-size: 70px;
+            transform: rotate(10deg);
+        }
+        
+        .star {
+            bottom: 20%;
+            left: 8%;
+            font-size: 50px;
+            transform: rotate(5deg);
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: fall 8s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: #0d47a1;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ffc107, #ff9800);
+            border-radius: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: #ff6d00;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+        
+        .photo-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        
+        .photo-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .photo-card h3 {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #0d47a1, #1976d2);
+            color: white;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .photo-wrapper {
+            padding: 25px;
+            background: #f8f9fa;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .photo-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            border: 8px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .photo-wrapper img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .btn-return {
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+            color: white;
+        }
+        
+        .btn-download {
+            background: linear-gradient(90deg, #ff9800, #ffc107);
+            color: white;
+        }
+        
+        .btn i {
+            font-size: 1.4rem;
+        }
+        
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoom 0.3s;
+        }
+        
+        @keyframes zoom {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .close:hover {
+            color: #ffc107;
+            transform: rotate(90deg);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .photo-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .photo-card {
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin: 30px auto;
+            max-width: 600px;
+            padding: 20px;
+            border-left: 4px solid #ffc107;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 0 10px 10px 0;
+            font-size: 1.2rem;
+            color: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+    <!-- 装饰元素 -->
+    <div class="decoration cap">
+        <i class="fas fa-graduation-cap"></i>
+    </div>
+    <div class="decoration book">
+        <i class="fas fa-book-open"></i>
+    </div>
+    <div class="decoration star">
+        <i class="fas fa-star"></i>
+    </div>
+    
+    <!-- 彩色纸屑 -->
+    <div id="confetti-container"></div>
+    
+    <div class="container">
+        <header>
+            <h1>毕业季 · 青春纪念册</h1>
+            <p class="subtitle">时光不老，我们不散 | 珍藏每一份美好回忆</p>
+        </header>
+        
+        <div class="quote">
+            "毕业是千百万个夏天的故事，千百万个人，千百万个不同的夏天，相同的只是告别。"
+        </div>
+        
+        <div class="photo-container">
+            <div class="photo-card">
+                <h3>我们的青春</h3>
+                <div class="photo-wrapper">
+                    <img src="./毕业照1.png" alt="毕业照1" onclick="openModal('./毕业照1.png')">
+                </div>
+            </div>
+            
+            <div class="photo-card">
+                <h3>永恒的回忆</h3>
+                <div class="photo-wrapper">
+                    <img src="./毕业照2.png" alt="毕业照2" onclick="openModal('./毕业照2.png')">
+                </div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn btn-return" onclick="window.location.href='index.html'">
+                <i class="fas fa-home"></i> 返回主页
+            </button>
+            <button class="btn btn-download" onclick="downloadPhotos()">
+                <i class="fas fa-download"></i> 下载照片
+            </button>
+        </div>
+        
+        <div class="quote">
+            "愿此去前程似锦，再相逢依旧如故。愿我们都能成为更好的自己，在彼此看不见的岁月里熠熠生辉。"
+        </div>
+    </div>
+    
+    <!-- 模态框 -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    
+    <footer>
+        <p>© 2025 毕业季 · 青春纪念册 | 设计制作：2208班</p>
+    </footer>
+
+    <script>
+        // 创建彩色纸屑
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ff9f1c', '#0d47a1'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(confetti);
+            }
+        }
+        
+        // 打开图片模态框
+        function openModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = src;
+        }
+        
+        // 关闭模态框
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+        
+        // 下载照片
+        function downloadPhotos() {
+            alert('毕业照片下载功能已触发！\n\n下载有bug，请长按保持。\n毕业快乐，前程似锦！');
+        }
+        
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // 页面加载完成后创建彩色纸屑
+        window.onload = createConfetti;
+    </script>
+</body>
+</html>

@@ -31,10 +31,9 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
-            /* 新增背景设计 */
             background: 
                 linear-gradient(135deg, rgba(245,247,250,0.9) 0%, rgba(228,231,245,0.9) 100%),
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233a86ff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM63 31c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM89 61c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233a86ff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
             background-attachment: fixed;
         }
 
@@ -118,7 +117,7 @@
             z-index: 1;
         }
 
-        /* 头部样式 - 重点优化部分 */
+        /* 头部样式 */
         header {
             background: var(--gradient);
             color: white;
@@ -131,7 +130,6 @@
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 0%, transparent 20%);
-            /* 新增书本背景 */
             background-image: 
                 linear-gradient(135deg, rgba(67, 97, 238, 0.85), rgba(76, 201, 240, 0.85)),
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='0.5' d='M20,25 Q40,15 60,25 T100,25 V75 Q60,85 40,75 T20,75 Z M20,25 V75'/%3E%3C/svg%3E");
@@ -165,7 +163,6 @@
             text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
-        /* 标题背景样式 - 新增部分 */
         .header-subtitle {
             background: rgba(0, 0, 0, 0.3);
             display: inline-block;
@@ -241,14 +238,11 @@
 
         /* 导航样式 */
         nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
             position: sticky;
             top: 0;
             z-index: 100;
             box-shadow: var(--shadow);
-            /* 新增导航背景 */
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
             border-bottom: 1px solid rgba(67, 97, 238, 0.1);
         }
 
@@ -328,12 +322,10 @@
         /* 签名部分 */
         .sign-section {
             padding: 5rem 0;
-            /* 新增签名区背景 */
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
             position: relative;
         }
 
-        /* 新增签名区装饰元素 */
         .sign-section::before {
             content: '';
             position: absolute;
@@ -388,15 +380,13 @@
             flex: 1;
             min-width: 320px;
             max-width: 800px;
-            background: #f8f9fa;
+            background: rgba(255, 255, 255, 0.85);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             padding: 2.5rem;
             display: flex;
             flex-direction: column;
             animation: fadeInLeft 1s ease;
-            /* 新增签名板背景 */
-            background: rgba(255, 255, 255, 0.85);
             border: 1px solid rgba(67, 97, 238, 0.1);
         }
 
@@ -420,42 +410,33 @@
             justify-content: center;
         }
         
-        /* 新增姓名输入框样式 */
-        .name-input-container {
+        .custom-color-container {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
             width: 100%;
-            margin-bottom: 1rem;
+            justify-content: center;
         }
         
-        .name-input-container label {
+        .custom-color-label {
             font-weight: 500;
-            margin-bottom: 0.5rem;
             color: var(--dark);
             display: flex;
             align-items: center;
+            white-space: nowrap;
         }
         
-        .name-input-container label i {
+        .custom-color-label i {
             margin-right: 8px;
             color: var(--primary);
         }
         
-        .name-input {
-            padding: 0.8rem 1.2rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.7);
-        }
-        
-        .name-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        #customColorPicker {
+            width: 50px;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         .btn {
@@ -510,51 +491,31 @@
             padding: 0.8rem 1.5rem;
             font-size: 1rem;
         }
+        
+        .btn-download {
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+        }
 
         .btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        .color-picker {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .color-option {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 3px solid transparent;
-            transition: transform 0.2s;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-        }
-
-        .color-option:hover {
-            transform: scale(1.2);
-        }
-
-        .color-option.active {
-            border-color: var(--dark);
-            transform: scale(1.2);
-        }
-
         .signatures-display {
             flex: 1;
             min-width: 320px;
             max-width: 800px;
-            background: #f8f9fa;
+            background: rgba(255, 255, 255, 0.85);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             padding: 2.5rem;
             animation: fadeInRight 1s ease;
             position: relative;
-            /* 新增签名展示区背景 */
-            background: rgba(255, 255, 255, 0.85);
             border: 1px solid rgba(67, 97, 238, 0.1);
         }
 
@@ -563,6 +524,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .signatures-header h3 {
@@ -586,7 +549,7 @@
         }
 
         .signature-item {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             padding: 1.5rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
@@ -595,8 +558,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* 新增签名项背景 */
-            background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(67, 97, 238, 0.1);
         }
 
@@ -608,44 +569,29 @@
         .signature-img {
             width: 100%;
             height: 120px;
-            background: #f1f5f9;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
             border-radius: 10px;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            /* 新增签名图片背景 */
-            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
         }
 
         .signature-img canvas {
             max-width: 100%;
             max-height: 100%;
         }
-        
-        /* 新增签名姓名样式 */
-        .signature-name {
-            font-weight: 600;
-            color: var(--primary);
-            margin-top: 0.5rem;
-            font-size: 1.1rem;
-            text-align: center;
-            word-break: break-word;
-            width: 100%;
-        }
 
         /* 功能区 - 青春纪念册 */
         .features-section {
             padding: 5rem 0;
-            /* 新增功能区背景 */
             background: 
                 linear-gradient(to bottom, rgba(240, 244, 248, 0.9), rgba(230, 235, 245, 0.9)),
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Cpath fill='%233a86ff' fill-opacity='0.03' d='M11,18 C15,18 18,15 18,11 C18,7 15,4 11,4 C7,4 4,7 4,11 C4,15 7,18 11,18 Z M59,43 C63,43 66,40 66,36 C66,32 63,29 59,29 C55,29 52,32 52,36 C52,40 55,43 59,43 Z M16,36 C18,36 20,34 20,32 C20,30 18,28 16,28 C14,28 12,30 12,32 C12,34 14,36 16,36 Z M74,74 C76,74 78,72 78,70 C78,68 76,66 74,66 C72,66 70,68 70,70 C70,72 72,74 74,74 Z M34,90 C36,90 38,88 38,86 C38,84 36,82 34,82 C32,82 30,84 30,86 C30,88 32,90 34,90 Z M90,14 C92,14 94,12 94,10 C94,8 92,6 90,6 C88,6 86,8 86,10 C86,12 88,14 90,14 Z M12,60 C14,60 16,58 16,56 C16,54 14,52 12,52 C10,52 8,54 8,56 C8,58 10,60 12,60 Z M63,31 C65,31 67,29 67,27 C67,25 65,23 63,23 C61,23 59,25 59,27 C59,29 61,31 63,31 Z M32,63 C34,63 36,61 36,59 C36,57 34,55 32,55 C30,55 28,57 28,59 C28,61 30,63 32,63 Z M89,61 C91,61 93,59 93,57 C93,55 91,53 89,53 C87,53 85,55 85,57 C85,59 87,61 89,61 Z M60,91 C62,91 64,89 64,87 C64,85 62,83 60,83 C58,83 56,85 56,87 C56,89 58,91 60,91 Z M35,41 C37,41 39,39 39,37 C39,35 37,33 35,33 C33,33 31,35 31,37 C31,39 33,41 35,41 Z'/%3E%3C/svg%3E");
             position: relative;
         }
 
-        /* 新增功能区装饰 */
         .features-section::before {
             content: '';
             position: absolute;
@@ -672,7 +618,7 @@
         }
 
         .feature-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.85);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
@@ -682,8 +628,6 @@
             display: flex;
             flex-direction: column;
             border-top: 5px solid var(--primary);
-            /* 新增功能卡片背景 */
-            background: rgba(255, 255, 255, 0.85);
             border: 1px solid rgba(67, 97, 238, 0.1);
         }
 
@@ -757,13 +701,11 @@
 
         /* 页脚 */
         footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 0 2rem;
-            /* 新增页脚背景 */
             background: 
                 linear-gradient(to bottom, #2d3748, #1a202c),
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M11,18c3.866,0,7-3.134,7-7s-3.134-7-7-7s-7,3.134-7,7S7.134,18,11,18z M59,43c3.866,0,7-3.134,7-7s-3.134-7-7-7s-7,3.134-7,7S55.134,43,59,43z M16,36c1.657,0,3-1.343,3-3s-1.343-3-3-3s-3,1.343-3,3S14.343,36,16,36z M74,74c1.657,0,3-1.343,3-3s-1.343-3-3-3s-3,1.343-3,3S72.343,74,74,74z M34,90c1.657,0,3-1.343,3-3s-1.343-3-3-3s-3,1.343-3,3S32.343,90,34,90z M90,14c1.657,0,3-1.343,3-3s-1.343-3-3-3s-3,1.343-3,3S88.343,14,90,14z M12,60c1.105,0,2-0.895,2-2s-0.895-2-2-2s-2,0.895-2,2S10.895,60,12,60z M63,31c2.21,0,4-1.79,4-4s-1.79-4-4-4s-4,1.79-4,4S60.79,31,63,31z M32,63c2.76,0,5-2.24,5-5s-2.24-5-5-5s-5,2.24-5,5S29.24,63,32,63z M89,61c2.21,0,4-1.79,4-4s-1.79-4-4-4s-4,1.79-4,4S86.79,61,89,61z M60,91c1.105,0,2-0.895,2-2s-0.895-2-2-2s-2,0.895-2,2S58.895,91,60,91z M35,41c1.105,0,2-0.895,2-2s-0.895-2-2-2s-2,0.895-2,2S33.895,41,35,41z'/%3E%3C/svg%3E");
+            color: white;
+            padding: 4rem 0 2rem;
         }
 
         .footer-content {
@@ -996,6 +938,320 @@
             }
         }
 
+        /* 新增音乐播放器样式 - 修复版 */
+        .music-player {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 320px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            z-index: 1000;
+            border: 1px solid rgba(67, 97, 238, 0.2);
+            backdrop-filter: blur(8px);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .music-player.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .player-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(67, 97, 238, 0.1);
+            padding-bottom: 15px;
+        }
+        
+        .player-header h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .player-header h3 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .close-player {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .close-player:hover {
+            color: var(--secondary);
+            transform: rotate(90deg);
+        }
+        
+        .song-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        
+        .album-art {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #4361ee, #4cc9f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .album-art::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+        }
+        
+        .album-art img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .album-art i {
+            font-size: 2rem;
+            color: white;
+            z-index: 1;
+        }
+        
+        .song-details {
+            flex: 1;
+        }
+        
+        .song-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .song-artist {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .progress-area {
+            margin-bottom: 18px;
+            position: relative;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: width 0.1s linear;
+        }
+        
+        .progress-bar:hover .progress::before {
+            opacity: 1;
+        }
+        
+        .timer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #777;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .control-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #555;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .control-btn:hover {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+        }
+        
+        .play-pause {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .play-pause:hover {
+            background: #3a55d4;
+            transform: scale(1.05);
+        }
+        
+        .volume-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .volume-icon {
+            color: #555;
+            margin-right: 12px;
+            font-size: 1.2rem;
+            min-width: 24px;
+        }
+        
+        .volume-slider {
+            flex: 1;
+            height: 5px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .volume-percentage {
+            height: 100%;
+            width: 70%;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            border-radius: 10px;
+        }
+        
+        .mini-player-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(67, 97, 238, 0.4);
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s;
+        }
+        
+        .mini-player-toggle:hover {
+            background: #3a55d4;
+            transform: scale(1.1);
+        }
+        
+        .mini-player-toggle.paused::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 30px;
+            background: white;
+            border-radius: 4px;
+            left: 50%;
+            top: 50%;
+            transform: translate(5px, -50%);
+        }
+        
+        .mini-player-toggle.paused i {
+            opacity: 0;
+        }
+        
+        .loading-indicator {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--primary);
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+        
+        .loading-indicator.active {
+            display: block;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .music-player {
+                width: 280px;
+                right: 15px;
+                bottom: 15px;
+            }
+            
+            .mini-player-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .music-player {
+                width: 90%;
+                left: 5%;
+                right: 5%;
+                bottom: 70px;
+            }
+            
+            .mini-player-toggle {
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
         /* 响应式设计 */
         @media (max-width: 992px) {
             .header-content h1 {
@@ -1118,10 +1374,6 @@
                 align-items: center;
             }
             
-            .color-picker {
-                justify-content: center;
-            }
-            
             .school-badge {
                 width: 90px;
                 height: 90px;
@@ -1182,7 +1434,7 @@
         </div>
     </section>
 
-    <!-- 头部 - 重点修改部分 -->
+    <!-- 头部 -->
     <header>
         <div class="decoration"></div>
         <div class="container">
@@ -1190,12 +1442,12 @@
                 <div class="school-badge">
                     <i class="fas fa-school"></i>
                 </div>
-                <h1>青春不散场 <span class="class-highlight">2208班</span></h1>
+                <h1>青春永不散场 <span class="class-highlight">2208班</span></h1>
                 <div class="header-subtitle">
                     昭州中学2025届2208班毕业纪念网站 · 珍藏我们共同的回忆与梦想
                 </div>
                 <a href="#sign" class="btn btn-secondary" style="margin-top: 2rem;">
-                    <i class="fas fa-signature"></i> 破釜沉舟搏六月，蟾宫折桂志必酬
+                    <i class="fas fa-signature"></i> </n></n></n></n></n></n></n>破釜沉舟搏六月，蟾宫折桂志必酬
                 </a>
             </div>
         </div>
@@ -1228,25 +1480,18 @@
         <div class="container">
             <div class="section-title">
                 <h2>毕业签名墙</h2>
-                <p>留下你的专属签名，珍藏这份青春记忆</p>
+                <p>以名为墨，书就青春方程式；以志为纸，解出人生最优解</p>
             </div>
             <div class="sign-container">
                 <div class="sign-board">
                     <canvas id="signatureCanvas"></canvas>
                     
-                    <!-- 姓名输入区域 -->
-                    <div class="name-input-container">
-                        <label for="nameInput"><i class="fas fa-user"></i> 请输入你的名字</label>
-                        <input type="text" id="nameInput" class="name-input" placeholder="例如：张明" maxlength="20">
-                    </div>
-                    
                     <div class="sign-controls">
-                        <div class="color-picker">
-                            <div class="color-option active" style="background-color: #000000;" data-color="#000000"></div>
-                            <div class="color-option" style="background-color: #4361ee;" data-color="#4361ee"></div>
-                            <div class="color-option" style="background-color: #ff6b6b;" data-color="#ff6b6b"></div>
-                            <div class="color-option" style="background-color: #4cc9f0;" data-color="#4cc9f0"></div>
-                            <div class="color-option" style="background-color: #7209b7;" data-color="#7209b7"></div>
+                        <div class="custom-color-container">
+                            <label class="custom-color-label">
+                                <i class="fas fa-palette"></i> 选择笔刷颜色
+                            </label>
+                            <input type="color" id="customColorPicker" value="#000000">
                         </div>
                         <button id="clearBtn" class="btn btn-outline">
                             <i class="fas fa-eraser"></i> 清除
@@ -1259,9 +1504,14 @@
                 <div class="signatures-display">
                     <div class="signatures-header">
                         <h3><i class="fas fa-star"></i> 同学签名展示</h3>
-                        <button id="clearAllBtn" class="btn btn-clear">
-                            <i class="fas fa-trash-alt"></i> 清除所有签名
-                        </button>
+                        <div class="signatures-header-controls">
+                            <button id="saveAllBtn" class="btn btn-download">
+                                <i class="fas fa-download"></i> 一键保存所有签名
+                            </button>
+                            <button id="clearAllBtn" class="btn btn-clear">
+                                <i class="fas fa-trash-alt"></i> 清除所有签名
+                            </button>
+                        </div>
                     </div>
                     <div class="signatures-grid" id="signaturesGrid">
                         <!-- 签名会动态添加到这里 -->
@@ -1284,8 +1534,10 @@
                         <i class="fas fa-user-friends"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>查看回忆录</h3>
-                        <p>点我查看回忆录</p>
+                        <h3>点我查看回忆录</h3>
+                        <p>这不是我的黑历史！这是我的成功路！！！<br><br>【逆光者的勋章】
+
+<br>    人们避之不及的暗礁，恰是我航行的坐标。那些被质疑的孤注一掷、被否定的野蛮生长、被嘲笑的倔强坚持，终将熔铸成劈开混沌的利刃。真正的勋章从不在锦旗上闪耀，它藏在每道伤疤的纹路里——那里镌刻着从深渊跃向星辰的轨迹。</p>
                         <a href="classmates.html" class="feature-link">查看回忆录 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1294,9 +1546,9 @@
                         <i class="fas fa-history"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>这里还没有写</h3>
-                        <p>别点</p>
-                        <a href="timeline.html" class="feature-link">别点 <i class="fas fa-arrow-right"></i></a>
+                        <h3>查看毕业照</h3>
+                        <p>点击查看高清毕业照</p>
+                        <a href="timeline.html" class="feature-link">点击我！ <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="feature-card">
@@ -1378,6 +1630,70 @@
             </div>
         </div>
     </div>
+    
+    <!-- 新增音乐播放器 -->
+    <div class="mini-player-toggle" id="miniPlayer">
+        <i class="fas fa-music"></i>
+    </div>
+    
+    <div class="music-player" id="musicPlayer">
+        <div class="player-header">
+            <h3><i class="fas fa-headphones-alt"></i> 背景音乐</h3>
+            <button class="close-player" id="closePlayer">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="song-info">
+            <div class="album-art">
+                <i class="fas fa-compact-disc"></i>
+                <div class="loading-indicator" id="loadingIndicator">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+            <div class="song-details">
+                <div class="song-title">纪念</div>
+                <div class="song-artist">2208班毕业主题曲</div>
+            </div>
+        </div>
+        
+        <div class="progress-area">
+            <div class="progress-bar" id="progressBar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="timer">
+                <span class="current-time" id="currentTime">00:00</span>
+                <span class="max-duration" id="maxDuration">00:00</span>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="control-btn" id="prevBtn">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="control-btn play-pause" id="playPauseBtn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="control-btn" id="nextBtn">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+        
+        <div class="volume-container">
+            <div class="volume-icon">
+                <i class="fas fa-volume-up" id="volumeIcon"></i>
+            </div>
+            <div class="volume-slider" id="volumeSlider">
+                <div class="volume-percentage" id="volumePercentage"></div>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="bgMusic" loop>
+        <!-- 替换为正确的音乐文件路径 -->
+        <source src="0123.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
 
     <script>
         // 高考倒计时功能
@@ -1428,16 +1744,19 @@
             const ctx = canvas.getContext('2d');
             const clearBtn = document.getElementById('clearBtn');
             const saveBtn = document.getElementById('saveBtn');
-            const colorOptions = document.querySelectorAll('.color-option');
             const signaturesGrid = document.getElementById('signaturesGrid');
             const adminBtn = document.getElementById('adminBtn');
-            const nameInput = document.getElementById('nameInput');
             const clearAllBtn = document.getElementById('clearAllBtn');
             const passwordModal = document.getElementById('passwordModal');
             const closeModal = document.getElementById('closeModal');
             const cancelBtn = document.getElementById('cancelBtn');
             const confirmClearBtn = document.getElementById('confirmClearBtn');
             const adminPasswordInput = document.getElementById('adminPassword');
+            const saveAllBtn = document.getElementById('saveAllBtn');
+            const customColorPicker = document.getElementById('customColorPicker');
+            
+            // 背景图片URL
+            const backgroundImageUrl = 'https://i0.hdslb.com/bfs/openplatform/68c04084d8f71f36ee628f2bf4d6ba858b39fe7c.jpg';
             
             // 设置Canvas尺寸
             function resizeCanvas() {
@@ -1462,7 +1781,7 @@
             resizeCanvas();
             window.addEventListener('resize', resizeCanvas);
             
-            // 签名功能 - 修复多笔画问题
+            // 签名功能
             let isDrawing = false;
             let lastX = 0;
             let lastY = 0;
@@ -1520,21 +1839,21 @@
             canvas.addEventListener('mouseup', stopDrawing);
             canvas.addEventListener('mouseout', stopDrawing);
             
-            // 触摸事件 - 添加支持
+            // 触摸事件 - 增强触摸支持
             canvas.addEventListener('touchstart', function(e) {
                 e.preventDefault();
                 startDrawing(e.touches[0]);
-            });
+            }, { passive: false });
             
             canvas.addEventListener('touchmove', function(e) {
                 e.preventDefault();
                 draw(e.touches[0]);
-            });
+            }, { passive: false });
             
             canvas.addEventListener('touchend', function(e) {
                 e.preventDefault();
                 stopDrawing();
-            });
+            }, { passive: false });
             
             // 清除按钮
             clearBtn.addEventListener('click', function() {
@@ -1548,25 +1867,13 @@
                 hasInitialText = true;
             });
             
-            // 颜色选择
-            colorOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    colorOptions.forEach(opt => opt.classList.remove('active'));
-                    this.classList.add('active');
-                    ctx.strokeStyle = this.dataset.color;
-                });
+            // 自定义颜色选择
+            customColorPicker.addEventListener('input', function() {
+                ctx.strokeStyle = this.value;
             });
             
-            // 保存签名
+            // 保存签名 - 修改为16:10比例
             saveBtn.addEventListener('click', function() { 
-                // 检查是否输入了姓名
-                const studentName = nameInput.value.trim();
-                if (!studentName) {
-                    showNotification('请输入你的名字', 'error');
-                    nameInput.focus();
-                    return;
-                }
-                
                 // 检查是否有签名
                 const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 let isEmpty = true;
@@ -1583,6 +1890,36 @@
                     return;
                 }
                 
+                // 创建16:10比例的新画布
+                const aspectRatio = 16/10;
+                const targetWidth = 800;
+                const targetHeight = Math.round(targetWidth / aspectRatio);
+                
+                const finalCanvas = document.createElement('canvas');
+                finalCanvas.width = targetWidth;
+                finalCanvas.height = targetHeight;
+                const finalCtx = finalCanvas.getContext('2d');
+                
+                // 填充白色背景
+                finalCtx.fillStyle = 'white';
+                finalCtx.fillRect(0, 0, targetWidth, targetHeight);
+                
+                // 计算居中位置
+                const scale = Math.min(targetWidth / canvas.width, targetHeight / canvas.height) * 0.9;
+                const scaledWidth = canvas.width * scale;
+                const scaledHeight = canvas.height * scale;
+                const offsetX = (targetWidth - scaledWidth) / 2;
+                const offsetY = (targetHeight - scaledHeight) / 2;
+                
+                // 绘制签名
+                finalCtx.drawImage(canvas, offsetX, offsetY, scaledWidth, scaledHeight);
+                
+                // 添加班级水印
+                finalCtx.font = '20px "Ma Shan Zheng", cursive';
+                finalCtx.fillStyle = 'rgba(0,0,0,0.1)';
+                finalCtx.textAlign = 'center';
+                finalCtx.fillText('昭州中学2025届2208班', targetWidth/2, targetHeight - 20);
+                
                 // 创建签名项
                 const signatureItem = document.createElement('div');
                 signatureItem.className = 'signature-item';
@@ -1592,30 +1929,25 @@
                 
                 const signatureCanvas = document.createElement('canvas');
                 signatureCanvas.width = 120;
-                signatureCanvas.height = 80;
+                signatureCanvas.height = 75; // 保持16:10比例
                 const signatureCtx = signatureCanvas.getContext('2d');
                 
-                // 复制签名到小画布
-                signatureCtx.drawImage(canvas, 0, 0, signatureCanvas.width, signatureCanvas.height);
+                // 复制签名到小画布（保持16:10比例）
+                signatureCtx.fillStyle = "white";
+                signatureCtx.fillRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+                signatureCtx.drawImage(finalCanvas, 0, 0, signatureCanvas.width, signatureCanvas.height);
                 
                 signatureImg.appendChild(signatureCanvas);
                 signatureItem.appendChild(signatureImg);
-                
-                // 添加学生姓名
-                const nameElement = document.createElement('div');
-                nameElement.className = 'signature-name';
-                nameElement.textContent = studentName;
-                signatureItem.appendChild(nameElement);
                 
                 // 添加到网格
                 signaturesGrid.insertBefore(signatureItem, signaturesGrid.firstChild);
                 
                 // 保存到localStorage
-                saveSignatureToLocalStorage(studentName, canvas.toDataURL());
+                saveSignatureToLocalStorage(finalCanvas.toDataURL());
                 
-                // 清除画布和姓名输入框
+                // 清除画布
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                nameInput.value = '';
                 
                 // 重新绘制提示文字
                 ctx.font = "24px 'Ma Shan Zheng', cursive";
@@ -1626,23 +1958,22 @@
                 hasInitialText = true;
                 
                 // 显示成功消息
-                showNotification('签名保存成功！');
+                showNotification('签名保存成功！有请下一位同学上台签名！');
             });
             
             // 保存签名到localStorage
-            function saveSignatureToLocalStorage(name, dataUrl) {
+            function saveSignatureToLocalStorage(dataUrl) {
                 let signatures = JSON.parse(localStorage.getItem('classSignatures')) || [];
                 
                 // 添加到数组开头
                 signatures.unshift({
-                    name: name,
                     dataUrl: dataUrl,
                     timestamp: new Date().toISOString()
                 });
                 
-                // 最多保存50个签名
-                if (signatures.length > 50) {
-                    signatures = signatures.slice(0, 50);
+                // 最多保存60个签名
+                if (signatures.length > 60) {
+                    signatures = signatures.slice(0, 60);
                 }
                 
                 localStorage.setItem('classSignatures', JSON.stringify(signatures));
@@ -1661,24 +1992,20 @@
                     
                     const signatureCanvas = document.createElement('canvas');
                     signatureCanvas.width = 120;
-                    signatureCanvas.height = 80;
+                    signatureCanvas.height = 75; // 保持16:10比例
                     const signatureCtx = signatureCanvas.getContext('2d');
                     
                     // 创建图像并绘制
                     const img = new Image();
                     img.onload = function() {
+                        signatureCtx.fillStyle = "white";
+                        signatureCtx.fillRect(0, 0, signatureCanvas.width, signatureCanvas.height);
                         signatureCtx.drawImage(img, 0, 0, signatureCanvas.width, signatureCanvas.height);
                     };
                     img.src = signature.dataUrl;
                     
                     signatureImg.appendChild(signatureCanvas);
                     signatureItem.appendChild(signatureImg);
-                    
-                    // 添加学生姓名
-                    const nameElement = document.createElement('div');
-                    nameElement.className = 'signature-name';
-                    nameElement.textContent = signature.name;
-                    signatureItem.appendChild(nameElement);
                     
                     // 添加到网格
                     signaturesGrid.appendChild(signatureItem);
@@ -1697,6 +2024,138 @@
                 showNotification('所有签名已清除！');
             }
             
+            // 一键保存所有签名功能 - 修改为4096×2160分辨率
+            saveAllBtn.addEventListener('click', function() {
+                const signatureItems = document.querySelectorAll('.signature-item');
+                
+                if (signatureItems.length === 0) {
+                    showNotification('没有签名可保存！', 'error');
+                    return;
+                }
+                
+                // 设置4096×2160分辨率
+                const canvasWidth = 4096;
+                const canvasHeight = 2160;
+                
+                const combinedCanvas = document.createElement('canvas');
+                combinedCanvas.width = canvasWidth;
+                combinedCanvas.height = canvasHeight;
+                const combinedCtx = combinedCanvas.getContext('2d');
+                
+                // 加载背景图片
+                const bgImg = new Image();
+                bgImg.crossOrigin = "Anonymous";
+                bgImg.src = backgroundImageUrl;
+                
+                bgImg.onload = function() {
+                    // 绘制背景（保持比例，不变形）
+                    const bgRatio = bgImg.width / bgImg.height;
+                    const canvasRatio = canvasWidth / canvasHeight;
+                    
+                    let drawWidth, drawHeight, offsetX = 0, offsetY = 0;
+                    
+                    if (bgRatio > canvasRatio) {
+                        // 图片更宽，按高度缩放
+                        drawHeight = canvasHeight;
+                        drawWidth = canvasHeight * bgRatio;
+                        offsetX = -(drawWidth - canvasWidth) / 2;
+                    } else {
+                        // 图片更高，按宽度缩放
+                        drawWidth = canvasWidth;
+                        drawHeight = canvasWidth / bgRatio;
+                        offsetY = -(drawHeight - canvasHeight) / 2;
+                    }
+                    
+                    combinedCtx.drawImage(bgImg, offsetX, offsetY, drawWidth, drawHeight);
+                    
+                    // 添加毛玻璃效果层
+                    combinedCtx.fillStyle = "rgba(255, 255, 255, 0.15)";
+                    combinedCtx.fillRect(0, 0, canvasWidth, canvasHeight);
+                    
+                    // 添加标题
+                    combinedCtx.font = "bold 120px 'Ma Shan Zheng', cursive";
+                    combinedCtx.fillStyle = "#4361ee";
+                    combinedCtx.textAlign = "center";
+                    combinedCtx.fillText("昭州中学2025届2208班毕业签名墙", canvasWidth/2, 200);
+                    
+                    combinedCtx.font = "72px 'Noto Sans SC', sans-serif";
+                    combinedCtx.fillStyle = "#4a5568";
+                    combinedCtx.fillText("青春不散场 · 梦想正启航", canvasWidth/2, 320);
+                    
+                    // 绘制签名
+                    const cols = 7; // 每行7个签名
+                    const rows = Math.ceil(signatureItems.length / cols);
+                    
+                    // 动态计算格子大小
+                    const padding = 80;
+                    const maxItemWidth = (canvasWidth - padding * 2) / cols;
+                    const maxItemHeight = (canvasHeight - 400) / rows;
+                    
+                    // 保持16:10比例，取最小值
+                    const itemHeight = Math.min(maxItemHeight, maxItemWidth * 0.625);
+                    const itemWidth = itemHeight * 1.6;
+                    
+                    const startX = (canvasWidth - (cols * itemWidth)) / 2;
+                    const startY = 400;
+                    
+                    let currentRow = 0;
+                    let currentCol = 0;
+                    
+                    signatureItems.forEach((item, index) => {
+                        const x = startX + currentCol * itemWidth;
+                        const y = startY + currentRow * itemHeight;
+                        
+                        // 绘制签名背景
+                        combinedCtx.fillStyle = "rgba(255, 255, 255, 0.7)";
+                        combinedCtx.fillRect(x, y, itemWidth, itemHeight);
+                        
+                        // 添加边框
+                        combinedCtx.strokeStyle = "rgba(67, 97, 238, 0.3)";
+                        combinedCtx.lineWidth = 4;
+                        combinedCtx.strokeRect(x, y, itemWidth, itemHeight);
+                        
+                        // 绘制签名（缩小到80%面积）
+                        const canvas = item.querySelector('canvas');
+                        const contentPadding = 20;
+                        combinedCtx.drawImage(
+                            canvas, 
+                            x + contentPadding, 
+                            y + contentPadding, 
+                            itemWidth - contentPadding * 2, 
+                            itemHeight - contentPadding * 2
+                        );
+                        
+                        // 更新位置
+                        currentCol++;
+                        if (currentCol >= cols) {
+                            currentCol = 0;
+                            currentRow++;
+                        }
+                    });
+                    
+                    // 添加页脚
+                    combinedCtx.font = "48px 'Noto Sans SC', sans-serif";
+                    combinedCtx.fillStyle = "#718096";
+                    combinedCtx.textAlign = "center";
+                    combinedCtx.fillText("生成时间: " + new Date().toLocaleString(), canvasWidth/2, canvasHeight - 100);
+                    
+                    // 添加班级水印
+                    combinedCtx.font = '60px "Ma Shan Zheng", cursive';
+                    combinedCtx.fillStyle = 'rgba(0,0,0,0.05)';
+                    combinedCtx.textAlign = 'center';
+                    combinedCtx.fillText('昭州中学2025届2208班', canvasWidth/2, canvasHeight/2);
+                    
+                    // 创建下载链接
+                    const link = document.createElement('a');
+                    link.download = '昭州中学2208班毕业签名墙.png';
+                    link.href = combinedCanvas.toDataURL('image/png');
+                    link.click();
+                    
+                    // 显示成功消息
+                    showNotification('青春已成永远的过去式，我们未来可期！！！');
+                };
+            });
+            
             // 显示通知函数
             function showNotification(message, type = 'success') {
                 const notification = document.createElement('div');
@@ -1705,12 +2164,14 @@
                 notification.style.top = '20px';
                 notification.style.left = '50%';
                 notification.style.transform = 'translateX(-50%)';
-                notification.style.backgroundColor = type === 'success' ? 'rgba(67, 97, 238, 0.9)' : 'rgba(255, 107, 107, 0.9)';
+                notification.style.backgroundColor = type === 'success' ? 'rgba(67, 97, 238, 0.9)' : 
+                                                   type === 'error' ? 'rgba(255, 107, 107, 0.9)' : 
+                                                   'rgba(76, 201, 240, 0.9)';
                 notification.style.color = 'white';
                 notification.style.padding = '12px 25px';
                 notification.style.borderRadius = '30px';
                 notification.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-                notification.style.zIndex = '1000';
+                notification.style.zIndex = '7000';
                 notification.style.fontWeight = '600';
                 notification.style.transition = 'all 0.3s';
                 notification.style.opacity = '0';
@@ -1810,6 +2271,222 @@
             
             // 页面加载时加载签名
             loadSignaturesFromLocalStorage();
+        });
+        
+        // 新增音乐播放器功能 - 修复版
+        document.addEventListener('DOMContentLoaded', function() {
+            // 音乐播放器元素
+            const musicPlayer = document.getElementById('musicPlayer');
+            const miniPlayer = document.getElementById('miniPlayer');
+            const closePlayer = document.getElementById('closePlayer');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const progressBar = document.getElementById('progressBar');
+            const progress = document.getElementById('progress');
+            const currentTimeEl = document.getElementById('currentTime');
+            const maxDurationEl = document.getElementById('maxDuration');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const volumePercentage = document.getElementById('volumePercentage');
+            const volumeIcon = document.getElementById('volumeIcon');
+            const bgMusic = document.getElementById('bgMusic');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            
+            // 显示播放器
+            function showPlayer() {
+                musicPlayer.classList.add('visible');
+            }
+            
+            // 隐藏播放器
+            function hidePlayer() {
+                musicPlayer.classList.remove('visible');
+            }
+            
+            // 更新播放按钮状态
+            function updatePlayButton() {
+                if (bgMusic.paused) {
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    miniPlayer.classList.add('paused');
+                } else {
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    miniPlayer.classList.remove('paused');
+                }
+            }
+            
+            // 播放/暂停音乐
+            function togglePlay() {
+                if (bgMusic.paused) {
+                    bgMusic.play().catch(e => console.log("播放失败:", e));
+                } else {
+                    bgMusic.pause();
+                }
+                updatePlayButton();
+            }
+            
+            // 格式化时间 (秒 -> 分:秒)
+            function formatTime(seconds) {
+                const min = Math.floor(seconds / 60);
+                const sec = Math.floor(seconds % 60);
+                return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+            }
+            
+            // 更新进度条
+            function updateProgress() {
+                const { currentTime, duration } = bgMusic;
+                const progressPercent = (currentTime / duration) * 100;
+                progress.style.width = `${progressPercent}%`;
+                currentTimeEl.textContent = formatTime(currentTime);
+                
+                if (!isNaN(duration)) {
+                    maxDurationEl.textContent = formatTime(duration);
+                }
+            }
+            
+            // 设置进度
+            function setProgress(e) {
+                const width = this.clientWidth;
+                const clickX = e.offsetX;
+                const duration = bgMusic.duration;
+                
+                bgMusic.currentTime = (clickX / width) * duration;
+            }
+            
+            // 设置音量
+            function setVolume(e) {
+                const width = this.clientWidth;
+                const clickX = e.offsetX;
+                const volume = Math.min(1, Math.max(0, clickX / width));
+                
+                bgMusic.volume = volume;
+                volumePercentage.style.width = `${volume * 100}%`;
+                
+                // 更新音量图标
+                if (volume === 0) {
+                    volumeIcon.className = 'fas fa-volume-mute';
+                } else if (volume < 0.5) {
+                    volumeIcon.className = 'fas fa-volume-down';
+                } else {
+                    volumeIcon.className = 'fas fa-volume-up';
+                }
+            }
+            
+            // 初始化音量
+            function initVolume() {
+                bgMusic.volume = 0.7;
+                volumePercentage.style.width = '70%';
+            }
+            
+            // 显示加载指示器
+            function showLoading() {
+                loadingIndicator.classList.add('active');
+            }
+            
+            // 隐藏加载指示器
+            function hideLoading() {
+                loadingIndicator.classList.remove('active');
+            }
+            
+            // 事件监听
+            miniPlayer.addEventListener('click', function() {
+                showPlayer();
+                // 尝试自动播放音乐
+                if (bgMusic.paused) {
+                    bgMusic.play().catch(e => console.log("自动播放被阻止:", e));
+                    updatePlayButton();
+                }
+            });
+            
+            closePlayer.addEventListener('click', hidePlayer);
+            playPauseBtn.addEventListener('click', togglePlay);
+            
+            prevBtn.addEventListener('click', function() {
+                // 这里可以添加切换上一首功能
+                showNotification('青春没有上一曲，只有向前进！');
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                // 这里可以添加切换下一首功能
+                showNotification('青春没有下一曲，珍惜当下每一刻！');
+            });
+            
+            bgMusic.addEventListener('timeupdate', updateProgress);
+            bgMusic.addEventListener('ended', function() {
+                bgMusic.currentTime = 0;
+                bgMusic.play();
+            });
+            
+            // 添加加载状态事件
+            bgMusic.addEventListener('waiting', showLoading);
+            bgMusic.addEventListener('canplay', hideLoading);
+            bgMusic.addEventListener('playing', hideLoading);
+            bgMusic.addEventListener('error', function() {
+                hideLoading();
+                showNotification('音乐加载失败，请检查音乐文件路径', 'error');
+            });
+            
+            progressBar.addEventListener('click', setProgress);
+            volumeSlider.addEventListener('click', setVolume);
+            
+            // 初始化
+            updatePlayButton();
+            initVolume();
+            
+            // 尝试自动播放（可能需要用户交互）
+            setTimeout(() => {
+                try {
+                    // 显示加载指示器
+                    showLoading();
+                    
+                    // 尝试播放音乐
+                    bgMusic.play().then(() => {
+                        hideLoading();
+                    }).catch(e => {
+                        hideLoading();
+                        console.log("自动播放被阻止，需要用户交互");
+                        // 显示提示
+                        showNotification('点击右下角音符图标播放背景音乐', 'info');
+                    });
+                } catch (e) {
+                    hideLoading();
+                    console.log("播放错误:", e);
+                    showNotification('音乐播放错误，请检查音乐文件', 'error');
+                }
+            }, 1000);
+            
+            // 显示通知函数（使用之前已有的）
+            function showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.position = 'fixed';
+                notification.style.top = '20px';
+                notification.style.left = '50%';
+                notification.style.transform = 'translateX(-50%)';
+                notification.style.backgroundColor = type === 'success' ? 'rgba(67, 97, 238, 0.9)' : 
+                                                   type === 'error' ? 'rgba(255, 107, 107, 0.9)' : 
+                                                   'rgba(76, 201, 240, 0.9)';
+                notification.style.color = 'white';
+                notification.style.padding = '12px 25px';
+                notification.style.borderRadius = '30px';
+                notification.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                notification.style.zIndex = '7000';
+                notification.style.fontWeight = '600';
+                notification.style.transition = 'all 0.3s';
+                notification.style.opacity = '0';
+                notification.style.animation = 'fadeInDown 0.5s forwards';
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.opacity = '1';
+                    setTimeout(() => {
+                        notification.style.top = '0';
+                        notification.style.opacity = '0';
+                        setTimeout(() => {
+                            document.body.removeChild(notification);
+                        }, 500);
+                    }, 2000);
+                }, 100);
+            }
         });
     </script>
 </body>
